@@ -18,8 +18,10 @@ The following files are licensed under the MIT License in
 
 Original authored prose, layout, styles, and graphics in `site/`, together with
 the authored documentation and provenance descriptions in
-`evidence/alfworld_20250328/`, are licensed under the
-[Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/)
+`evidence/alfworld_20250328/`, `evidence/architecture_2025/`, and
+`evidence/current_architecture_2026/`, are licensed
+under the [Creative Commons Attribution 4.0 International
+license](https://creativecommons.org/licenses/by/4.0/)
 (CC BY 4.0), where copyright or similar rights apply. Attribute the work to
 Eduardo Cortes and indicate whether changes were made.
 
@@ -31,6 +33,10 @@ The licenses above do not apply to:
   exports and are included for auditability without a separate reuse grant;
 - ALFWorld datasets, tasks, names, or other third-party material;
 - model outputs or historical run traces;
+- the Continuity of Mind source presentation, its rendered slide images, and
+  team-authored component research incorporated into the architecture,
+  including the text-only editorial renderings that preserve those excluded
+  historical visual materials;
 - material in the linked CognitiveLLM repository;
 - CogAgentLab files outside the paths explicitly listed above; or
 - third-party names, marks, or materials governed by separate terms.

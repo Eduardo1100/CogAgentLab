@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - ".github/workflows/showcase-pages.yml"
-      - "evidence/alfworld_20250328/**"
+      - "evidence/**"
       - "scripts/build_historical_evidence.py"
       - "scripts/build_showcase.py"
       - "site/**"

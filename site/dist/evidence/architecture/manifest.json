@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "continuity-of-mind-architecture-summit-2025",
+  "source": {
+    "filename": "Cognitive LLM Agents-slides(2).pptx",
+    "sha256": "5a52b704f8ee7bab7c2b016d1b7906e52a4b681c79b021e81545e1f35e73d3c5",
+    "access": "owner-supplied; editable PPTX not bundled; 17 rendered slide images bundled",
+    "presentation_context": "Berkeley Agent Summit, summer 2025",
+    "presentation_context_basis": "owner statement"
+  },
+  "rendered_slides": {
+    "count": 17,
+    "format": "PNG",
+    "width_px": 1600,
+    "height_px": 900,
+    "path_pattern": "rendered_slides/slide-01.png through slide-17.png",
+    "derivation": "full-slide renderings from the owner-supplied PPTX"
+  },
+  "text_only_editorial_adaptation": {
+    "count": 17,
+    "format": "PNG",
+    "width_px": 1600,
+    "height_px": 900,
+    "path_pattern": "reframed_slides/slide-01.png through slide-17.png",
+    "scope": "editable slide text only; no architecture diagram, chart, embedded image, connector, or other visual object was changed",
+    "purpose": "replace consciousness-forward terminology with operational language and distinguish the audited run from broader intended architecture",
+    "visual_integrity_checks": {
+      "diagram_only_slides_pixel_identical_to_source": [6, 7, 8, 10, 12, 13],
+      "embedded_media_hash_multiset_identical": true,
+      "original_renderings_preserved": true
+    },
+    "interpretive_source": {
+      "description": "owner-supplied unpublished TeX draft by Yixiao Wang and Aaron Zheng, used for theoretical framing only",
+      "sha256": "020a9b7930ca22c8f54ac7da5fa5d80496240ee210f0210548dd5e434b444b86",
+      "access": "not bundled"
+    }
+  },
+  "summit_title_slide_credit_line": [
+    "Eduardo Cortes",
+    "Aaron Zheng",
+    "Yixiao Wang",
+    "Bhaskar Mishra",
+    "Bingyi Chen",
+    "Will Cai"
+  ],
+  "owner_attested_chronology": {
+    "basis": "Eduardo Cortes statement",
+    "hackathon_phase": "The team contributed component research; Eduardo designed and integrated the Global Workspace Theory architecture used in the team presentation.",
+    "post_hackathon_role": "Eduardo became the main organizer and took on an informal leadership role, but was never formally designated team leader; Yixiao Wang occasionally advised.",
+    "evaluated_implementation": "Eduardo independently implemented and evaluated the integrated architecture within a different but overlapping GenAI at Berkeley project sponsored by Block, Inc.",
+    "summit_credit_context": "The six-name title-slide credit preserved the original hackathon-team context because the hackathon win supplied the summit presentation opportunity; it is not a contribution map for the evaluated implementation."
+  },
+  "claim_map": [
+    {
+      "slides": [3, 4, 5],
+      "claim": "The context window serves as a cognitive global workspace managed by a context-sensitive meta-agent controller."
+    },
+    {
+      "slides": [6, 10, 13],
+      "claim": "Specialized agents form cognition loops for perception, executive control, belief, imagination, action, memory, and learning."
+    },
+    {
+      "slides": [7, 11, 12],
+      "claim": "Conceptual memory records concepts, clusters them semantically, summarizes clusters, and injects those summaries into the next episode."
+    },
+    {
+      "slides": [8, 9],
+      "claim": "Episodic memory stores time-ordered belief states by episode and supports later retrieval."
+    },
+    {
+      "slides": [14],
+      "claim": "The 139-task evaluation used enhanced planning and active conceptual memory while excluding retrieval of prior episode traces. The run-era code and traces show that a current-game observation history remained active."
+    },
+    {
+      "slides": [16],
+      "claim": "A unified latent substrate was presented as future work rather than as part of the evaluated system."
+    }
+  ],
+  "interpretation_constraints": [
+    "The summit title-slide credit preserves hackathon-team context and must not be interpreted as a contribution map for the evaluated implementation.",
+    "The contribution and sponsorship chronology is owner-attested and is not independently established by the deck.",
+    "Eduardo must not be described as a formally appointed team leader.",
+    "The evaluated runtime retained a current-game observation trace but did not retrieve prior episode transcripts; the deck's shorthand 'episodic memory excluded' refers to the latter cross-game capability.",
+    "Run-specific architecture claims must be checked against run_architecture.json rather than inferred from the later summit schematic alone.",
+    "The future unified-substrate proposal must not be described as implemented or evaluated.",
+    "The W&B evidence bundle remains canonical for success totals and dataset interpretation.",
+    "The editable PPTX is not redistributed; the complete 17-slide rendered presentation is bundled.",
+    "The text-only editorial adaptation preserves every architecture diagram, chart, embedded image, and connector; the original slide renderings remain bundled separately.",
+    "Operational aliases and theoretical interpretation are documented in theory.json and must not be read as renaming the historical runtime in source."
+  ]
+}

@@ -1,6 +1,4 @@
 # CogAgentLab
-[Project showcase](https://eduardo1100.github.io/CogAgentLab/) ·
-[Evidence summary](https://eduardo1100.github.io/CogAgentLab/evidence/summary.json)
 
 [![CI](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml/badge.svg)](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml)
 
@@ -27,7 +25,24 @@ Then open `http://localhost:8000`. Source exports, hashes, known conditions, and
 the canonical 139-row table live in `evidence/alfworld_20250328/`. Publication
 uses the narrow scope defined in `SHOWCASE-LICENSING.md`: it does not relicense
 the existing collaborative codebase, W&B source exports, model outputs, or
-historical material. Award and sponsor claims remain outside the showcase.
+historical material. The award certificate is not bundled; sponsorship and
+contribution chronology are explicitly identified as owner-attested.
+
+The architecture section distinguishes the initial design phase, the
+solo implementation behind the 139-game evaluation, and the later CogAgentLab
+extension. It also separates the summit's historical hackathon-team credit from
+the evaluated implementation's contribution map. Slide-level provenance, a
+trace-and-code reconstruction of the evaluated runtime, owner-attested
+chronology, and interpretation constraints are recorded in
+`evidence/architecture_2025/`. A separate source audit of the current runtime
+lives in `evidence/current_architecture_2026/`. The public page presents both
+runtime diagrams and all 17 slides as full-resolution renderings while keeping
+the editable PPTX out of the bundle. The primary gallery is a text-only
+editorial adaptation: every historical architecture diagram, chart, embedded
+image, and connector is unchanged, and the original slide renderings remain
+bundled separately. `theory.json` explains historical terms such as
+`Conscious_Agent` and `World Model:` as an operational belief-state update
+rather than a consciousness or simulator claim.
 
 ## What Is Here
 

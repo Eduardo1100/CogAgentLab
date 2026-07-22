@@ -17,9 +17,14 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
 DIST_DIR = SITE_DIR / "dist"
 EVIDENCE_DIR = ROOT / "evidence" / "alfworld_20250328"
+ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "architecture_2025"
+ARCHITECTURE_SLIDES_DIR = ARCHITECTURE_EVIDENCE_DIR / "rendered_slides"
+ARCHITECTURE_REFRAMED_SLIDES_DIR = ARCHITECTURE_EVIDENCE_DIR / "reframed_slides"
+CURRENT_ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "current_architecture_2026"
 SUMMARY_PATH = EVIDENCE_DIR / "derived" / "summary.json"
 RESULTS_PATH = EVIDENCE_DIR / "derived" / "game_results.csv"
 MANIFEST_PATH = EVIDENCE_DIR / "manifest.json"
+MERGE_CONFLICT_RE = re.compile(rb"(?m)^(?:<<<<<<<(?: .*)?|=======|>>>>>>>(?: .*)?)\r?$")
 
 
 class LinkCollector(HTMLParser):
@@ -163,12 +168,46 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
             EVIDENCE_DIR / "SHA256SUMS"
         ).read_bytes(),
         DIST_DIR / "evidence" / "README.md": (EVIDENCE_DIR / "README.md").read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "README.md": (
+            ARCHITECTURE_EVIDENCE_DIR / "README.md"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "manifest.json": (
+            ARCHITECTURE_EVIDENCE_DIR / "manifest.json"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "run_architecture.json": (
+            ARCHITECTURE_EVIDENCE_DIR / "run_architecture.json"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "theory.json": (
+            ARCHITECTURE_EVIDENCE_DIR / "theory.json"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "current-architecture" / "README.md": (
+            CURRENT_ARCHITECTURE_EVIDENCE_DIR / "README.md"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "current-architecture" / "manifest.json": (
+            CURRENT_ARCHITECTURE_EVIDENCE_DIR / "manifest.json"
+        ).read_bytes(),
     }
     for source in manifest["sources"]:
         filename = source["file"]
         outputs[DIST_DIR / "evidence" / "source" / filename] = (
             EVIDENCE_DIR / "source" / filename
         ).read_bytes()
+    slide_paths = sorted(ARCHITECTURE_SLIDES_DIR.glob("slide-*.png"))
+    if len(slide_paths) != 17:
+        raise ValueError(f"Expected 17 rendered slides, found {len(slide_paths)}")
+    for slide_path in slide_paths:
+        outputs[DIST_DIR / "evidence" / "architecture" / "slides" / slide_path.name] = (
+            slide_path.read_bytes()
+        )
+    reframed_slide_paths = sorted(ARCHITECTURE_REFRAMED_SLIDES_DIR.glob("slide-*.png"))
+    if len(reframed_slide_paths) != 17:
+        raise ValueError(
+            f"Expected 17 text-reframed slides, found {len(reframed_slide_paths)}"
+        )
+    for slide_path in reframed_slide_paths:
+        outputs[
+            DIST_DIR / "evidence" / "architecture" / "reframed-slides" / slide_path.name
+        ] = slide_path.read_bytes()
     return outputs
 
 
@@ -210,12 +249,20 @@ def check_privacy(outputs: dict[Path, bytes]) -> None:
                 raise ValueError(f"Public bundle contains {label}: {path}")
 
 
+def check_merge_conflict_markers(outputs: dict[Path, bytes]) -> None:
+    """Reject unresolved Git conflict markers before they reach site/dist."""
+    for path, content in outputs.items():
+        if MERGE_CONFLICT_RE.search(content):
+            raise ValueError(f"Public bundle contains Git conflict markers: {path}")
+
+
 def build(*, check: bool) -> None:
     summary = build_evidence(check=check)
     outputs = expected_outputs(summary)
     index = outputs[DIST_DIR / "index.html"]
     check_links(index, outputs)
     check_privacy(outputs)
+    check_merge_conflict_markers(outputs)
     materialize(outputs, check=check)
 
 

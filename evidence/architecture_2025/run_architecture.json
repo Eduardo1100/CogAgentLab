@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "continuity-of-mind-evaluated-runtime-2025-03-28",
+  "result": {
+    "wandb_run_id": "vee8kzls",
+    "model": "GPT-4o",
+    "environment": "ALFWorld",
+    "dataset_split": "valid_seen",
+    "games_evaluated": 139,
+    "successes": 121,
+    "success_rate": 0.8705035971223022,
+    "action_budget": {
+      "maximum": 60,
+      "phases": 2,
+      "actions_per_phase": 30,
+      "description": "The first 30-action phase could transition through reflection and learning into a second 30-action recovery phase."
+    }
+  },
+  "source_boundary": {
+    "trace_commit": "52071d0d537ede5127a0cbc87ca06500f6ef4316",
+    "run_era_behavior_commit": "bbee903db99c35e4409adef2c97e0e701fae3624",
+    "trace_path": "runs-1/20250328_103103",
+    "immutable_sources": {
+      "runtime": "https://github.com/project194-cognitivellm/cognitivellm/blob/bbee903db99c35e4409adef2c97e0e701fae3624/gwt_agent.py",
+      "runner": "https://github.com/project194-cognitivellm/cognitivellm/blob/bbee903db99c35e4409adef2c97e0e701fae3624/run_autogen_eval_loop.py",
+      "traces": "https://github.com/project194-cognitivellm/cognitivellm/tree/52071d0d537ede5127a0cbc87ca06500f6ef4316/runs-1/20250328_103103"
+    },
+    "exact_dirty_diff_preserved": false,
+    "note": "The runtime reconstruction uses the same-day behavior commit plus the preserved chat traces. The exact uncommitted run diff is unavailable."
+  },
+  "workspace_runtime": {
+    "coordination": "AutoGen GroupChatManager constrained by an allowed speaker-transition graph",
+    "active_named_roles": [
+      "Planning_Agent",
+      "Motor_Agent",
+      "Idea_Agent",
+      "Conscious_Agent",
+      "Retrieve_Memory_Agent",
+      "Learning_Agent",
+      "Record_Long_Term_Memory_Agent",
+      "Focus_Agent",
+      "External_Perception_Agent",
+      "Internal_Perception_Agent_1",
+      "Internal_Perception_Agent_2",
+      "Internal_Perception_Agent_3"
+    ],
+    "inactive_or_unrouted_roles": [
+      {
+        "name": "Memory_Summarizer_Agent",
+        "status": "instantiated in the same-day source but not included in the group chat or transition graph"
+      }
+    ],
+    "allowed_transitions": [
+      ["Planning_Agent", "Motor_Agent"],
+      ["Motor_Agent", "External_Perception_Agent"],
+      ["External_Perception_Agent", "Conscious_Agent"],
+      ["Conscious_Agent", "Planning_Agent"],
+      ["Conscious_Agent", "Retrieve_Memory_Agent"],
+      ["Conscious_Agent", "Focus_Agent"],
+      ["Retrieve_Memory_Agent", "Internal_Perception_Agent_3"],
+      ["Internal_Perception_Agent_3", "Idea_Agent"],
+      ["Internal_Perception_Agent_3", "Learning_Agent"],
+      ["Idea_Agent", "Planning_Agent"],
+      ["Learning_Agent", "Record_Long_Term_Memory_Agent"],
+      ["Record_Long_Term_Memory_Agent", "Internal_Perception_Agent_1"],
+      ["Internal_Perception_Agent_1", "Idea_Agent"],
+      ["Focus_Agent", "Internal_Perception_Agent_2"],
+      ["Internal_Perception_Agent_2", "Conscious_Agent"]
+    ]
+  },
+  "memory_runtime": {
+    "episode_local_observation_trace": {
+      "status": "active",
+      "scope": "current game only",
+      "behavior": "The runtime appended the initial state and subsequent observations to an in-memory time-ordered trace and returned it through retrieve_memory()."
+    },
+    "cross_game_conceptual_rules": {
+      "status": "active",
+      "scope": "across games",
+      "behavior": "Learning_Agent produced general rules; record_long_term_memory appended them to memory1.txt. Before each game, all rules were embedded with all-MiniLM-L6-v2, clustered with KMeans, and representative rules were written to memory2.txt and returned by retrieve_memory()."
+    },
+    "prior_episode_trace_retrieval": {
+      "status": "inactive",
+      "scope": "across games",
+      "behavior": "The evaluated runtime did not retrieve transcripts or belief-state histories from earlier games. This is the episodic-memory capability excluded from the full run."
+    }
+  },
+  "trace_audit": {
+    "game_directories": 139,
+    "populated_chat_histories": 138,
+    "missing_chat_history_game": 123,
+    "missing_chat_history_reason": "The preserved file contains only 'Error Message: no chat history in chat result'.",
+    "named_roles_observed": 12,
+    "observed_transition_counts": {
+      "Planning_Agent -> Motor_Agent": 3189,
+      "Motor_Agent -> External_Perception_Agent": 3188,
+      "External_Perception_Agent -> Conscious_Agent": 3053,
+      "Conscious_Agent -> Planning_Agent": 2548,
+      "Conscious_Agent -> Retrieve_Memory_Agent": 641,
+      "Conscious_Agent -> Focus_Agent": 530,
+      "Internal_Perception_Agent_3 -> Learning_Agent": 340,
+      "Internal_Perception_Agent_3 -> Idea_Agent": 301
+    },
+    "games_showing_episode_local_and_working_long_term_memory_labels": 131,
+    "games_showing_second_chance_language": 28
+  }
+}
