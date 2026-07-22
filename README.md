@@ -2,6 +2,10 @@
 
 [![CI](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml/badge.svg)](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml)
 
+[Project showcase](https://eduardo1100.github.io/CogAgentLab/) ·
+[Evaluated run](https://eduardo1100.github.io/CogAgentLab/#result) ·
+[Operational theory](https://eduardo1100.github.io/CogAgentLab/theory.html)
+
 `CogAgentLab` is a Python 3.11 project for running cognitive-agent evaluations and tracking experiment results through a FastAPI API backed by Postgres, Redis, and MinIO.
 
 ## Evidence-backed project record

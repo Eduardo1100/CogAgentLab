@@ -156,6 +156,8 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
         DIST_DIR / "theory.html": (SITE_DIR / "theory.html").read_bytes(),
         DIST_DIR / "styles.css": (SITE_DIR / "styles.css").read_bytes(),
         DIST_DIR / "favicon.svg": (SITE_DIR / "favicon.svg").read_bytes(),
+        DIST_DIR / "social-preview.svg": (SITE_DIR / "social-preview.svg").read_bytes(),
+        DIST_DIR / "social-preview.png": (SITE_DIR / "social-preview.png").read_bytes(),
         DIST_DIR / "LICENSE-SHOWCASE-CODE": (
             ROOT / "LICENSE-SHOWCASE-CODE"
         ).read_bytes(),

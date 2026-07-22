@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Evidence-backed project record for Continuity of Mind and CogAgentLab."
+      content="Eduardo Cortes designed and evaluated a cognitive architecture that completed 121 of 139 ALFWorld tasks, then extended it into the CogAgentLab research system."
     >
-    <title>CogAgentLab · Evidence-backed project record</title>
+    <link rel="canonical" href="https://eduardo1100.github.io/CogAgentLab/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CogAgentLab · From cognitive architecture to research lab">
+    <meta property="og:description" content="121 of 139 ALFWorld tasks completed, followed by a four-environment system for evidence-driven cognitive-agent research.">
+    <meta property="og:url" content="https://eduardo1100.github.io/CogAgentLab/">
+    <meta property="og:image" content="https://eduardo1100.github.io/CogAgentLab/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="CogAgentLab project record showing 121 of 139 ALFWorld tasks completed and a Designed, Evaluated, Extended development arc.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CogAgentLab · From cognitive architecture to research lab">
+    <meta name="twitter:description" content="121 of 139 ALFWorld tasks completed, then extended into an evidence-driven research lab.">
+    <meta name="twitter:image" content="https://eduardo1100.github.io/CogAgentLab/social-preview.png">
+    <title>CogAgentLab · Cognitive architecture to research lab</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -26,40 +39,64 @@
         </div>
       </nav>
       <div id="top" class="hero-grid">
-        <div>
-          <p class="eyebrow">Claim-audited project record · Eduardo Cortes</p>
-          <h1>From an integrated cognitive architecture to an agent-directed research lab.</h1>
+        <div class="hero-copy">
+          <p class="eyebrow">Cognitive architecture → research lab · Eduardo Cortes</p>
+          <h1>I built a cognitive architecture that completed {{SUCCESS_COUNT}} of {{GAME_COUNT}} ALFWorld tasks.</h1>
           <p class="lede">
-            Continuity of Mind began as Eduardo Cortes's Global-Workspace-style
-            integration of a hackathon team's component research. He later implemented
-            and evaluated the architecture in a separate, overlapping GenAI at Berkeley
-            project sponsored by Block, Inc. CogAgentLab extends that runtime into a
-            multi-environment research harness with preserved evidence and coding-agent
-            experiments under human review.
+            Then I turned it into an agent-directed research lab. I designed the
+            Global-Workspace-style architecture from a hackathon team's component
+            research, later implemented and evaluated the integrated system with GPT-4o
+            in a Block-sponsored Berkeley project, and extended it into CogAgentLab: a
+            four-environment harness where experiment evidence drives focused
+            coding-agent changes under human review.
           </p>
           <div class="actions">
-            <a class="button primary" href="#evidence">Inspect the evidence</a>
-            <a
-              class="button secondary"
-              href="https://github.com/Eduardo1100/CogAgentLab"
-            >View the repository</a>
+            <a class="button primary" href="#result">See the evaluated run</a>
+            <a class="button secondary" href="#system">Explore the research lab</a>
           </div>
         </div>
-        <aside class="boundary" aria-label="Publication boundary">
-          <p class="boundary-label">What this page establishes</p>
-          <p>
-            A historical 139-game evaluation, its full metric trajectory, and the
-            current research harness are directly supported by linked artifacts.
-          </p>
+        <aside class="hero-proof-card" aria-label="Historical evaluation proof point">
+          <p class="proof-kicker">Complete historical evaluation · March 2025</p>
+          <p class="proof-value">{{SUCCESS_RATE_PERCENT}}%</p>
+          <p class="proof-label">task success</p>
+          <div class="proof-fraction">
+            <strong>{{SUCCESS_COUNT}} / {{GAME_COUNT}}</strong>
+            <span>ALFWorld <code>valid_seen</code> games</span>
+          </div>
+          <dl class="proof-facts">
+            <div><dt>Model</dt><dd>GPT-4o</dd></div>
+            <div><dt>Failures</dt><dd>All retained</dd></div>
+          </dl>
+          <div class="proof-links">
+            <a href="#evidence">Verify the result</a>
+            <a href="https://github.com/Eduardo1100/CogAgentLab">View source</a>
+          </div>
         </aside>
       </div>
+      <ol class="hero-trajectory" aria-label="Project development arc">
+        <li>
+          <span>01 · Designed</span>
+          <strong>Global-Workspace-style architecture</strong>
+          <p>Integrated a hackathon team's component research into one control system.</p>
+        </li>
+        <li>
+          <span>02 · Evaluated</span>
+          <strong>Complete 139-game run</strong>
+          <p>Implemented the integrated system and recorded 121 successful games.</p>
+        </li>
+        <li>
+          <span>03 · Extended</span>
+          <strong>Agent-directed research lab</strong>
+          <p>Four environments, persistent evidence, and coding-agent experiments under review.</p>
+        </li>
+      </ol>
     </header>
 
     <main id="main">
       <section id="result" class="section result-section" aria-labelledby="result-title">
         <div class="section-heading">
           <p class="eyebrow">Historical evaluation · March 2025</p>
-          <h2 id="result-title">A complete 139-game result, reconciled across sources.</h2>
+          <h2 id="result-title">The proof point: 121 successes across a complete 139-game run.</h2>
           <p>
             W&B run <code>vee8kzls</code> records every game. The exported trajectory
             agrees with the committed per-game results for games 1–138 and supplies
@@ -127,8 +164,8 @@
 
       <section id="architecture" class="section architecture-section" aria-labelledby="architecture-title">
         <div class="section-heading">
-          <p class="eyebrow">Architecture lineage</p>
-          <h2 id="architecture-title">The evaluated system sits between a design and a research lab.</h2>
+          <p class="eyebrow">Designed → evaluated → extended</p>
+          <h2 id="architecture-title">One architecture became an evaluated system, then a research lab.</h2>
           <p>
             Three stages matter: a collaborative design phase, Eduardo's later
             implementation and evaluation, and the current multi-environment research
@@ -432,12 +469,12 @@
 
       <section id="system" class="section dark-section" aria-labelledby="system-title">
         <div class="section-heading">
-          <p class="eyebrow">Current system</p>
-          <h2 id="system-title">CogAgentLab now separates environment, state, control, memory, and evidence.</h2>
+          <p class="eyebrow">What it became</p>
+          <h2 id="system-title">A research lab that turns failure evidence into focused agent changes.</h2>
           <p>
-            The current runtime retains a global-workspace-style core while adding
-            typed state, grounded referents, interruptible action options, and
-            uncertainty-triggered deliberation across four environments.
+            CogAgentLab spans four environments and makes state, control, memory, and
+            evidence explicit. Its outer loop turns a failed episode into one scoped
+            coding-agent experiment under human review.
           </p>
         </div>
 
@@ -558,8 +595,8 @@
 
       <section id="evidence" class="section" aria-labelledby="evidence-title">
         <div class="section-heading">
-          <p class="eyebrow">Claim-to-evidence ledger</p>
-          <h2 id="evidence-title">Every public statement has a bounded source.</h2>
+          <p class="eyebrow">Verify the work</p>
+          <h2 id="evidence-title">Every headline claim resolves to a primary artifact.</h2>
         </div>
 
         <div class="evidence-table-wrap">

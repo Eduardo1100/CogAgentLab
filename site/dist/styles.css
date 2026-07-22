@@ -96,8 +96,8 @@ nav {
   grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.75fr);
   gap: clamp(2rem, 7vw, 7rem);
   max-width: 1180px;
-  margin: 6rem auto 0;
-  align-items: end;
+  margin: 5rem auto 0;
+  align-items: center;
 }
 
 .eyebrow {
@@ -124,6 +124,11 @@ h1 {
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 0.98;
+}
+
+.hero-copy h1 {
+  max-width: 820px;
+  font-size: clamp(3rem, 5.7vw, 5.15rem);
 }
 
 .lede {
@@ -158,6 +163,167 @@ h1 {
 
 .button.secondary {
   color: var(--white);
+}
+
+.hero-proof-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid rgb(156 219 189 / 38%);
+  border-radius: 1rem;
+  color: #d6e1dc;
+  background:
+    linear-gradient(145deg, rgb(156 219 189 / 12%), transparent 58%),
+    rgb(255 255 255 / 5%);
+  box-shadow: 0 24px 70px rgb(0 0 0 / 22%);
+}
+
+.hero-proof-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: #9cdbbd;
+  content: "";
+}
+
+.proof-kicker {
+  margin: 0;
+  color: #9cdbbd;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proof-value {
+  margin: 1.5rem 0 0;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 7vw, 6.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+}
+
+.proof-label {
+  margin: 0.7rem 0 0;
+  color: #9cdbbd;
+  font-size: 0.9rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proof-fraction {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgb(255 255 255 / 14%);
+  align-items: baseline;
+}
+
+.proof-fraction strong {
+  color: var(--white);
+  font-size: 1.35rem;
+}
+
+.proof-fraction span {
+  color: #cbd7d1;
+  font-size: 0.82rem;
+}
+
+.hero-proof-card code {
+  color: #d8efe5;
+  background: rgb(216 239 229 / 10%);
+}
+
+.proof-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.2rem 0 0;
+}
+
+.proof-facts div {
+  padding: 0.8rem;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 0.6rem;
+  background: rgb(0 0 0 / 10%);
+}
+
+.proof-facts dt {
+  color: #8bc4ab;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proof-facts dd {
+  margin: 0.25rem 0 0;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.proof-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.proof-links a {
+  color: #bfe9d5;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.hero-trajectory {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1180px;
+  margin: 4rem auto 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 0.9rem;
+  background: rgb(255 255 255 / 14%);
+  list-style: none;
+}
+
+.hero-trajectory li {
+  padding: 1.15rem 1.3rem;
+  background: #10231c;
+}
+
+.hero-trajectory span,
+.hero-trajectory strong {
+  display: block;
+}
+
+.hero-trajectory span {
+  color: #8bc4ab;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hero-trajectory strong {
+  margin-top: 0.35rem;
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.hero-trajectory p {
+  margin: 0.4rem 0 0;
+  color: #b9c9c1;
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
 .boundary {
@@ -1595,6 +1761,20 @@ code {
 
   .theory-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-trajectory {
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.8rem, 14vw, 4.3rem);
+  }
+
+  .proof-fraction {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .theory-principles,
