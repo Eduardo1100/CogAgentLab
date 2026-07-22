@@ -47,3 +47,7 @@ The historical code was collaborative. Git history attributes the core
 additional repository contributions from Will Cai and Aaron Zheng. The source
 repository does not declare a license, so this bundle links to its raw traces
 rather than copying them.
+
+The licensing boundary for this showcase is documented in
+`SHOWCASE-LICENSING.md` at the repository root. In particular, the byte-preserved
+W&B source exports are not relicensed.

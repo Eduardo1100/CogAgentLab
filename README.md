@@ -23,8 +23,9 @@ python -m http.server --directory site/dist 8000
 
 Then open `http://localhost:8000`. Source exports, hashes, known conditions, and
 the canonical 139-row table live in `evidence/alfworld_20250328/`. Publication
-remains subject to owner review of licensing, collaborator attribution, award
-evidence, and sponsor naming.
+uses the narrow scope defined in `SHOWCASE-LICENSING.md`: it does not relicense
+the existing collaborative codebase, W&B source exports, model outputs, or
+historical material. Award and sponsor claims remain outside the showcase.
 
 ## What Is Here
 

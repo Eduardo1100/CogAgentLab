@@ -149,6 +149,13 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
     outputs = {
         DIST_DIR / "index.html": render_index(summary, manifest, rows),
         DIST_DIR / "styles.css": (SITE_DIR / "styles.css").read_bytes(),
+        DIST_DIR / "favicon.svg": (SITE_DIR / "favicon.svg").read_bytes(),
+        DIST_DIR / "LICENSE-SHOWCASE-CODE": (
+            ROOT / "LICENSE-SHOWCASE-CODE"
+        ).read_bytes(),
+        DIST_DIR / "SHOWCASE-LICENSING.md": (
+            ROOT / "SHOWCASE-LICENSING.md"
+        ).read_bytes(),
         DIST_DIR / "evidence" / "game_results.csv": RESULTS_PATH.read_bytes(),
         DIST_DIR / "evidence" / "summary.json": SUMMARY_PATH.read_bytes(),
         DIST_DIR / "evidence" / "manifest.json": MANIFEST_PATH.read_bytes(),
