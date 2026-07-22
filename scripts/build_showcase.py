@@ -24,9 +24,7 @@ CURRENT_ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "current_architecture_20
 SUMMARY_PATH = EVIDENCE_DIR / "derived" / "summary.json"
 RESULTS_PATH = EVIDENCE_DIR / "derived" / "game_results.csv"
 MANIFEST_PATH = EVIDENCE_DIR / "manifest.json"
-MERGE_CONFLICT_RE = re.compile(
-    rb"(?m)^(?:<<<<<<<(?: .*)?|=======|>>>>>>>(?: .*)?)\r?$"
-)
+MERGE_CONFLICT_RE = re.compile(rb"(?m)^(?:<<<<<<<(?: .*)?|=======|>>>>>>>(?: .*)?)\r?$")
 
 
 class LinkCollector(HTMLParser):
@@ -198,23 +196,17 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
     if len(slide_paths) != 17:
         raise ValueError(f"Expected 17 rendered slides, found {len(slide_paths)}")
     for slide_path in slide_paths:
-        outputs[
-            DIST_DIR / "evidence" / "architecture" / "slides" / slide_path.name
-        ] = slide_path.read_bytes()
-    reframed_slide_paths = sorted(
-        ARCHITECTURE_REFRAMED_SLIDES_DIR.glob("slide-*.png")
-    )
+        outputs[DIST_DIR / "evidence" / "architecture" / "slides" / slide_path.name] = (
+            slide_path.read_bytes()
+        )
+    reframed_slide_paths = sorted(ARCHITECTURE_REFRAMED_SLIDES_DIR.glob("slide-*.png"))
     if len(reframed_slide_paths) != 17:
         raise ValueError(
             f"Expected 17 text-reframed slides, found {len(reframed_slide_paths)}"
         )
     for slide_path in reframed_slide_paths:
         outputs[
-            DIST_DIR
-            / "evidence"
-            / "architecture"
-            / "reframed-slides"
-            / slide_path.name
+            DIST_DIR / "evidence" / "architecture" / "reframed-slides" / slide_path.name
         ] = slide_path.read_bytes()
     return outputs
 
