@@ -1,4 +1,6 @@
 # CogAgentLab
+[Project showcase](https://eduardo1100.github.io/CogAgentLab/) ·
+[Evidence summary](https://eduardo1100.github.io/CogAgentLab/evidence/summary.json)
 
 [![CI](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml/badge.svg)](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml)
 
