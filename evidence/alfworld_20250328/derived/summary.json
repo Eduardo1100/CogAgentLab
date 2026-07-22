@@ -1,0 +1,42 @@
+{
+  "all_action_total": 2807,
+  "avg_actions_per_successful_game": 15.760330578512397,
+  "configured_dataset": "valid_seen",
+  "evidence_id": "alfworld-valid-seen-20250328-golden-pyramid-593",
+  "failure_game_ids": [
+    10,
+    29,
+    35,
+    52,
+    57,
+    69,
+    77,
+    79,
+    86,
+    93,
+    94,
+    107,
+    109,
+    121,
+    123,
+    124,
+    125,
+    139
+  ],
+  "failures": 18,
+  "games_evaluated": 139,
+  "runtime_total_hours": 37.10387088206079,
+  "runtime_total_seconds": 133573.93517541885,
+  "source_sha256": {
+    "wandb_export_2026-07-21T19_28_54.009-07_00.csv": "405b1217b6fcd6078000fe4de9832145a9280b17b0e6e1f9310536774fedcdaa",
+    "wandb_export_2026-07-21T19_29_01.418-07_00.csv": "16e90213d59847991c22fe6e19a9ad2ebf5df8ffa27985182e10ffe538e431cf",
+    "wandb_export_2026-07-21T19_29_12.065-07_00.csv": "c588109cb18158b4b04c31a4deb541bd3540017217bff9aafb1863d0dc4530c9",
+    "wandb_export_2026-07-21T19_29_18.620-07_00.csv": "369afa9337491615b8ffa7f841f23519813e3ef4c92af742044134db3fbde690",
+    "wandb_export_2026-07-21T19_29_24.019-07_00.csv": "6df17c622a7265d687e9e425a120f92b86435afe3a945c0af067f2e8bc6bbd1d"
+  },
+  "success_rate": 0.8705035971223022,
+  "successes": 121,
+  "successful_action_total": 1907,
+  "wandb_display_name": "golden-pyramid-593",
+  "wandb_run_id": "vee8kzls"
+}

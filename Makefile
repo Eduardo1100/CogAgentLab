@@ -2,7 +2,7 @@
 PYTHON := uv run python
 SHELL  := /bin/zsh
 
-.PHONY: help setup dev train eval debug iterate-agent ablate-agent format lint test ci clean build-docker benchmark up down nuke sanity bootstrap-alfworld db-upgrade db-revision db-current
+.PHONY: help setup dev train eval debug iterate-agent ablate-agent format lint test ci clean build-docker benchmark up down nuke sanity bootstrap-alfworld db-upgrade db-revision db-current historical-evidence historical-evidence-check showcase showcase-check
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -78,6 +78,18 @@ test: ## Run tests (CI-style, fail fast)
 	uv run pytest tests/ -x -q
 
 ci: lint test ## Run CI-equivalent local checks
+
+historical-evidence: ## Generate the canonical historical ALFWorld evidence tables
+	python scripts/build_historical_evidence.py
+
+historical-evidence-check: ## Verify source hashes and generated historical evidence
+	python scripts/build_historical_evidence.py --check
+
+showcase: historical-evidence ## Build the local, self-contained project showcase
+	python scripts/build_showcase.py
+
+showcase-check: historical-evidence-check ## Verify the generated showcase and privacy boundary
+	python scripts/build_showcase.py --check
 
 clean: ## Wipe the environment and caches (The nuclear option)
 	@echo "🧹 Cleaning up..."
