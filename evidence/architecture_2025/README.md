@@ -5,7 +5,12 @@ the project showcase. `manifest.json` describes the owner-supplied presentation 
 `Cognitive LLM Agents-slides(2).pptx`, presented by Eduardo Cortes at the
 Berkeley Agent Summit in summer 2025. The editable PPTX is not bundled; all 17
 slides are preserved as 1600×900 PNG renderings in `rendered_slides/` and shown
-in the public showcase. `run_architecture.json` separately reconstructs the
+in the public showcase. A text-only editorial adaptation is preserved in
+`reframed_slides/`; it changes editable prose but leaves every architecture
+diagram, chart, embedded image, connector, and other visual object unchanged.
+The original renderings remain bundled as the historical source. `theory.json`
+explains the runtime in operational language, and `run_architecture.json`
+separately reconstructs the
 runtime behind the March 2025 evaluation from the same-day code and preserved
 chat traces.
 
@@ -36,6 +41,27 @@ The canonical success count and dataset interpretation continue to come from
 the W&B exports in `evidence/alfworld_20250328/`, not from the presentation.
 The slide renderings preserve the presentation as delivered; their inclusion
 does not promote every experimental result into a canonical project claim.
+
+## How to read the historical terminology
+
+The evaluated source called one routed role `Conscious_Agent` and labeled its
+text output `World Model:`. Operationally, the role ran after environment
+feedback and produced a revisable account of task state, progress, and
+uncertainty; it did not choose actions. The showcase therefore describes it as
+a **belief-state updater** and its output as a **belief state** while retaining
+the exact historical names in provenance records. Neither label implies
+sentience, phenomenal consciousness, or a learned environment simulator.
+
+The “global workspace” is likewise used as an engineering description: a
+bounded shared context plus a constrained speaker-transition policy. The focus
+branch replayed the task and latest percept to re-ground that context. The
+memory branches restored a current-game observation trace and representative
+cross-game rules. `theory.json` records this interpretation and its boundaries.
+
+The owner-supplied unpublished paper draft by Yixiao Wang and Aaron Zheng is an
+interpretive source for this explanation. It is not bundled and is not used to
+establish the canonical success count, dataset split, or exact run
+configuration.
 
 ## What the run-specific audit supports
 

@@ -34,7 +34,9 @@ The licenses above do not apply to:
 - ALFWorld datasets, tasks, names, or other third-party material;
 - model outputs or historical run traces;
 - the Continuity of Mind source presentation, its rendered slide images, and
-  team-authored component research incorporated into the architecture;
+  team-authored component research incorporated into the architecture,
+  including the text-only editorial renderings that preserve those excluded
+  historical visual materials;
 - material in the linked CognitiveLLM repository;
 - CogAgentLab files outside the paths explicitly listed above; or
 - third-party names, marks, or materials governed by separate terms.

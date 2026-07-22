@@ -31,6 +31,9 @@ same-day source and preserved chat traces; the current figure is grounded in an
 immutable CogAgentLab source snapshot. Their manifests live in
 `evidence/architecture_2025/` and `evidence/current_architecture_2026/`.
 The editable PPTX is not bundled, but all 17 slides remain included as
-full-resolution renderings. The six-name summit credit line is preserved as
-hackathon-team context rather than treated as an implementation contribution
-map.
+full-resolution renderings. The public gallery uses a text-only editorial
+adaptation; architecture diagrams, charts, embedded images, and connectors are
+unchanged, and the original renderings remain bundled separately. The six-name
+summit credit line is preserved as hackathon-team context rather than treated
+as an implementation contribution map. Operational aliases and their limits are
+recorded in `evidence/architecture_2025/theory.json`.

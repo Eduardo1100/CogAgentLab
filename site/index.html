@@ -186,7 +186,7 @@
             </dl>
           </div>
 
-          <div class="historical-runtime" role="img" aria-label="The evaluated runtime used a constrained AutoGen group chat. The core action loop routed Conscious Agent to Planning Agent, Motor Agent, External Perception Agent, and back to Conscious Agent. Conscious Agent could also route through a focus loop or a retrieval and learning loop. Memory retrieval returned an active current-game observation trace and active clustered conceptual rules; retrieval of earlier game transcripts was inactive.">
+          <div class="historical-runtime" role="img" aria-label="The evaluated runtime used a constrained AutoGen group chat. The core action loop routed the historically named Conscious Agent, operationally a belief-state updater, to Planning Agent, Motor Agent, External Perception Agent, and back to the belief-state updater. The role emitted a textual World Model, interpreted here as a fallible belief state rather than a simulator or a claim of sentience. It could also route through focus, retrieval, and learning loops. Memory retrieval returned an active current-game observation trace and active clustered conceptual rules; retrieval of earlier game transcripts was inactive.">
             <div class="runtime-controller">
               <span class="node-kicker">Constrained AutoGen workspace</span>
               <strong>GroupChatManager selects only allowed next speakers</strong>
@@ -197,7 +197,7 @@
               <span class="route-arrow" aria-hidden="true">→</span>
               <div class="route-node"><small>Tool executor</small><strong>External Perception</strong></div>
               <span class="route-arrow" aria-hidden="true">→</span>
-              <div class="route-node emphasized"><small>World model</small><strong>Conscious</strong></div>
+              <div class="route-node emphasized"><small>Belief-state updater</small><strong>Conscious_Agent</strong></div>
               <span class="route-arrow" aria-hidden="true">→</span>
               <div class="route-node"><small>Plan</small><strong>Planning</strong></div>
               <span class="route-arrow" aria-hidden="true">→</span>
@@ -208,7 +208,7 @@
             <div class="branch-grid">
               <article>
                 <span class="branch-label">Retrieve / imagine</span>
-                <p><strong>Conscious</strong> → Retrieve Memory → Internal Perception 3 → Idea → Planning</p>
+                <p><strong>Belief-state updater</strong> → Retrieve Memory → Internal Perception 3 → Idea → Planning</p>
               </article>
               <article>
                 <span class="branch-label">Learn / consolidate</span>
@@ -216,7 +216,7 @@
               </article>
               <article>
                 <span class="branch-label">Reset focus</span>
-                <p><strong>Conscious</strong> → Focus → Internal Perception 2 → Conscious</p>
+                <p><strong>Belief-state updater</strong> → Focus → Internal Perception 2 → Belief-state updater</p>
               </article>
             </div>
           </div>
@@ -239,6 +239,41 @@
             </article>
           </div>
 
+          <div class="architecture-theory" aria-labelledby="architecture-theory-title">
+            <div class="theory-heading">
+              <p class="eyebrow">Operational interpretation</p>
+              <h4 id="architecture-theory-title">What made the routed system coherent across a task?</h4>
+              <p>
+                The architecture did not depend on a claim about machine consciousness.
+                It externalized a running state, constrained which operator could act
+                next, and forced actions to return through environment feedback.
+              </p>
+            </div>
+            <div class="theory-grid">
+              <article>
+                <h5>Belief state, not a simulator</h5>
+                <p><code>Conscious_Agent</code> emitted a fallible textual hypothesis labeled <code>World Model:</code>. It summarized task state and uncertainty; it did not plan or act.</p>
+              </article>
+              <article>
+                <h5>Workspace, not an inner theater</h5>
+                <p>The “global workspace” was a bounded shared context plus a GroupChatManager that admitted only legal next roles.</p>
+              </article>
+              <article>
+                <h5>Feedback closes the loop</h5>
+                <p>Planning led to motor output, the environment executed the action, and external perception returned the result before the belief state changed.</p>
+              </article>
+              <article>
+                <h5>Focus re-grounds state</h5>
+                <p>The focus path replayed the task and latest percept so the next belief update could recover from missing or diluted context.</p>
+              </article>
+              <article>
+                <h5>Two active memory scales</h5>
+                <p>A current-game observation trace preserved local continuity; clustered representative rules carried selected knowledge across games.</p>
+              </article>
+            </div>
+            <a class="theory-link" href="evidence/architecture/theory.json">Read the theory and interpretation boundaries</a>
+          </div>
+
           <figcaption>
             Runtime reconstruction from the same-day behavior commit and 138 populated
             chat histories; game 123 preserved only its no-chat-history error. The
@@ -254,11 +289,14 @@
             Aaron Zheng, Yixiao Wang, Bhaskar Mishra, Bingyi Chen, and Will Cai because
             the summit slot came from the original hackathon team. Per Eduardo's
             account, that credit line is not a map of contributions to the later
-            evaluated implementation. The editable PPTX is not redistributed; all 17
-            rendered slides appear below.
+            evaluated implementation. The editable PPTX is not redistributed. All 17
+            slides appear below in a text-only editorial adaptation; the architecture
+            diagrams, charts, images, and connectors are unchanged, and the original
+            renderings remain available as the historical source.
           </p>
           <div class="provenance-links">
             <a href="evidence/architecture/run_architecture.json">Evaluated runtime manifest</a>
+            <a href="evidence/architecture/theory.json">Operational theory</a>
             <a href="evidence/architecture/manifest.json">Summit deck manifest</a>
           </div>
         </div>
@@ -267,120 +305,148 @@
       <section id="deck" class="section deck-section" aria-labelledby="deck-title">
         <div class="section-heading">
           <p class="eyebrow">Berkeley Agent Summit · summer 2025</p>
-          <h2 id="deck-title">The complete Continuity of Mind presentation.</h2>
+          <h2 id="deck-title">The complete deck, reframed in operational language.</h2>
           <p>
-            These 17 slides are full-resolution renderings of the owner-supplied
-            summit deck. Select any slide to open the original 1600×900 rendering.
-            Slides 14–15 report the historical evaluation and smaller component
-            experiments; slide 16 is explicitly a future direction, not part of the
-            evaluated system.
+            These 17 slides preserve the original layout and every architecture
+            diagram, chart, image, and connector. Only editable text was revised to
+            explain the system as shared state, routing, feedback, and memory—and to
+            separate the audited run from broader intended architecture. Select any
+            slide to open its 1600×900 rendering. The original summit renderings remain
+            linked below as the historical source.
           </p>
         </div>
 
-        <div class="slide-gallery" aria-label="Complete 17-slide summit presentation">
+        <div class="slide-gallery" aria-label="Complete 17-slide text-only editorial adaptation of the summit presentation">
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-01.png">
-              <img src="evidence/architecture/slides/slide-01.png" width="1600" height="900" alt="Title slide for Continuity of Mind: Grounded, Memory-Driven Cognition in LLM Agents, with the UC Berkeley seal and six-name hackathon-team credit line.">
+            <a href="evidence/architecture/reframed-slides/slide-01.png">
+              <img src="evidence/architecture/reframed-slides/slide-01.png" width="1600" height="900" alt="Title slide for Continuity of Mind: Grounded, Memory-Driven Control in Language Agents, with the UC Berkeley seal and the preserved six-name summit credit line.">
             </a>
             <figcaption><span>01</span>Continuity of Mind</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-02.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-02.png" width="1600" height="900" alt="Research framing for large cognitive models, including the research question, objective, and motivation for integrating artificial experience.">
+            <a href="evidence/architecture/reframed-slides/slide-02.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-02.png" width="1600" height="900" alt="Research framing for continuity under limited context, defining the problem as explicit state management and control.">
             </a>
-            <figcaption><span>02</span>Towards large cognitive models</figcaption>
+            <figcaption><span>02</span>Continuity under limited context</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-03.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-03.png" width="1600" height="900" alt="Chain-of-thought prompting diagram showing working-memory activations interacting with text stored in a context window.">
+            <a href="evidence/architecture/reframed-slides/slide-03.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-03.png" width="1600" height="900" alt="Unchanged chain-of-thought diagram showing working-memory activations interacting with text stored in a context window, with revised explanatory text.">
             </a>
             <figcaption><span>03</span>Chain-of-thought insight</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-04.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-04.png" width="1600" height="900" alt="Explanation of the context window as a dynamic cognitive substrate, contrasting reactive System 1 behavior with reflective System 2 reasoning.">
+            <a href="evidence/architecture/reframed-slides/slide-04.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-04.png" width="1600" height="900" alt="Explanation of local proposal generation, constrained role transitions, shared context, and environment feedback.">
             </a>
-            <figcaption><span>04</span>From reactive to structured cognition</figcaption>
+            <figcaption><span>04</span>From local generation to explicit control</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-05.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-05.png" width="1600" height="900" alt="Continuity of Mind meta-agent framework listing the controller, cognition loops, global workspace, belief states, episodic memory, and conceptual memory.">
+            <a href="evidence/architecture/reframed-slides/slide-05.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-05.png" width="1600" height="900" alt="Continuity of Mind described as a routed state-and-memory architecture with belief, episode-local trace, and conceptual memory boundaries.">
             </a>
-            <figcaption><span>05</span>Meta-agent framework</figcaption>
+            <figcaption><span>05</span>Routed state-and-memory architecture</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-06.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-06.png" width="1600" height="900" alt="Network diagram of specialized cognition loops for perception, executive control, imagination, belief, motor output, memory, and learning.">
+            <a href="evidence/architecture/reframed-slides/slide-06.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-06.png" width="1600" height="900" alt="Unchanged network diagram of specialized cognition loops for perception, executive control, imagination, belief, motor output, memory, and learning.">
             </a>
             <figcaption><span>06</span>Cognition loops</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-07.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-07.png" width="1600" height="900" alt="Memory-flow diagram connecting an LLM agent and context window to long-term conceptual and episodic memory through tool calls and procedural insertion.">
+            <a href="evidence/architecture/reframed-slides/slide-07.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-07.png" width="1600" height="900" alt="Unchanged memory-flow diagram connecting an LLM agent and context window to long-term conceptual and episodic memory through tool calls and procedural insertion.">
             </a>
             <figcaption><span>07</span>Memory flow</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-08.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-08.png" width="1600" height="900" alt="Episodic-memory diagram showing belief states recorded at episode end and retrieved from earlier episodes into the context window.">
+            <a href="evidence/architecture/reframed-slides/slide-08.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-08.png" width="1600" height="900" alt="Unchanged episodic-memory diagram showing belief states recorded at episode end and retrieved from earlier episodes into the context window.">
             </a>
             <figcaption><span>08</span>Episodic memory</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-09.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-09.png" width="1600" height="900" alt="Detailed episodic-memory slide explaining belief-state construction, time-ordered episode storage, and retrieval for grounding future reasoning.">
+            <a href="evidence/architecture/reframed-slides/slide-09.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-09.png" width="1600" height="900" alt="Unchanged episodic-memory diagram with revised text distinguishing the intended cross-game design from the current-game trace used in the evaluated run.">
             </a>
             <figcaption><span>09</span>Contextual trace of experience</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-10.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-10.png" width="1600" height="900" alt="Repeated network view of cognition loops, highlighting the connections among specialized agents.">
+            <a href="evidence/architecture/reframed-slides/slide-10.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-10.png" width="1600" height="900" alt="Unchanged repeated network view of cognition loops, highlighting the connections among specialized agents.">
             </a>
             <figcaption><span>10</span>Cognition loops revisited</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-11.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-11.png" width="1600" height="900" alt="Conceptual-memory slide explaining concept generation, recording, semantic clustering, representative prototypes, and reinsertion into the next episode.">
+            <a href="evidence/architecture/reframed-slides/slide-11.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-11.png" width="1600" height="900" alt="Unchanged conceptual-memory diagram with revised text explaining rule generation, MiniLM embedding, KMeans clustering, and representative-rule retrieval.">
             </a>
             <figcaption><span>11</span>Semantic knowledge integration</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-12.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-12.png" width="1600" height="900" alt="Conceptual-memory pipeline from the concept agent through context, recording, storage, semantic clustering, and prototype memory.">
+            <a href="evidence/architecture/reframed-slides/slide-12.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-12.png" width="1600" height="900" alt="Unchanged conceptual-memory pipeline from the concept agent through context, recording, storage, semantic clustering, and prototype memory.">
             </a>
             <figcaption><span>12</span>Conceptual memory flow</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-13.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-13.png" width="1600" height="900" alt="Final network view of the perception, executive-control, autopilot, imagination, memory, learning, and motor-output loops.">
+            <a href="evidence/architecture/reframed-slides/slide-13.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-13.png" width="1600" height="900" alt="Unchanged final network view of the perception, executive-control, autopilot, imagination, memory, learning, and motor-output loops.">
             </a>
             <figcaption><span>13</span>Integrated cognition loops</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-14.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-14.png" width="1600" height="900" alt="ALFWorld evaluation slide reporting 87.05 percent across 139 tasks with enhanced planning and active conceptual memory, alongside four trajectory charts.">
+            <a href="evidence/architecture/reframed-slides/slide-14.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-14.png" width="1600" height="900" alt="Unchanged ALFWorld trajectory charts with revised text reporting the canonical 121 successes across 139 valid_seen games and the exact memory boundary.">
             </a>
             <figcaption><span>14</span>ALFWorld evaluation</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-15.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-15.png" width="1600" height="900" alt="Experimental-results slide summarizing smaller conceptual- and episodic-memory studies with a retrieval table and actions-per-success chart.">
+            <a href="evidence/architecture/reframed-slides/slide-15.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-15.png" width="1600" height="900" alt="Unchanged component-experiment table and actions-per-success chart with revised text separating these smaller studies from the canonical full run.">
             </a>
             <figcaption><span>15</span>Component experiments</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-16.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-16.png" width="1600" height="900" alt="Future-work proposal for cognition within a unified substrate, showing attention and MLP layers linked to an internal global workspace.">
+            <a href="evidence/architecture/reframed-slides/slide-16.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-16.png" width="1600" height="900" alt="Unchanged future-work diagram of attention and MLP layers linked to an internal global workspace, with revised text marking it as unimplemented.">
             </a>
             <figcaption><span>16</span>Future unified substrate</figcaption>
           </figure>
           <figure class="deck-slide">
-            <a href="evidence/architecture/slides/slide-17.png">
-              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-17.png" width="1600" height="900" alt="Closing slide reading Thank You.">
+            <a href="evidence/architecture/reframed-slides/slide-17.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/reframed-slides/slide-17.png" width="1600" height="900" alt="Closing slide reading Continuity is a control problem.">
             </a>
-            <figcaption><span>17</span>Thank you</figcaption>
+            <figcaption><span>17</span>Continuity is a control problem</figcaption>
           </figure>
         </div>
+
+        <details class="source-deck">
+          <summary>Open the original, unedited summit renderings</summary>
+          <p>
+            The original 17 slide images remain bundled as the historical source.
+            The text-only adaptation above does not replace that record.
+          </p>
+          <nav class="source-slide-links" aria-label="Original unedited summit slide renderings">
+            <a href="evidence/architecture/slides/slide-01.png">01</a>
+            <a href="evidence/architecture/slides/slide-02.png">02</a>
+            <a href="evidence/architecture/slides/slide-03.png">03</a>
+            <a href="evidence/architecture/slides/slide-04.png">04</a>
+            <a href="evidence/architecture/slides/slide-05.png">05</a>
+            <a href="evidence/architecture/slides/slide-06.png">06</a>
+            <a href="evidence/architecture/slides/slide-07.png">07</a>
+            <a href="evidence/architecture/slides/slide-08.png">08</a>
+            <a href="evidence/architecture/slides/slide-09.png">09</a>
+            <a href="evidence/architecture/slides/slide-10.png">10</a>
+            <a href="evidence/architecture/slides/slide-11.png">11</a>
+            <a href="evidence/architecture/slides/slide-12.png">12</a>
+            <a href="evidence/architecture/slides/slide-13.png">13</a>
+            <a href="evidence/architecture/slides/slide-14.png">14</a>
+            <a href="evidence/architecture/slides/slide-15.png">15</a>
+            <a href="evidence/architecture/slides/slide-16.png">16</a>
+            <a href="evidence/architecture/slides/slide-17.png">17</a>
+          </nav>
+        </details>
       </section>
 
       <section id="system" class="section dark-section" aria-labelledby="system-title">

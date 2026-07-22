@@ -16,6 +16,25 @@
     "path_pattern": "rendered_slides/slide-01.png through slide-17.png",
     "derivation": "full-slide renderings from the owner-supplied PPTX"
   },
+  "text_only_editorial_adaptation": {
+    "count": 17,
+    "format": "PNG",
+    "width_px": 1600,
+    "height_px": 900,
+    "path_pattern": "reframed_slides/slide-01.png through slide-17.png",
+    "scope": "editable slide text only; no architecture diagram, chart, embedded image, connector, or other visual object was changed",
+    "purpose": "replace consciousness-forward terminology with operational language and distinguish the audited run from broader intended architecture",
+    "visual_integrity_checks": {
+      "diagram_only_slides_pixel_identical_to_source": [6, 7, 8, 10, 12, 13],
+      "embedded_media_hash_multiset_identical": true,
+      "original_renderings_preserved": true
+    },
+    "interpretive_source": {
+      "description": "owner-supplied unpublished TeX draft by Yixiao Wang and Aaron Zheng, used for theoretical framing only",
+      "sha256": "020a9b7930ca22c8f54ac7da5fa5d80496240ee210f0210548dd5e434b444b86",
+      "access": "not bundled"
+    }
+  },
   "summit_title_slide_credit_line": [
     "Eduardo Cortes",
     "Aaron Zheng",
@@ -65,6 +84,8 @@
     "Run-specific architecture claims must be checked against run_architecture.json rather than inferred from the later summit schematic alone.",
     "The future unified-substrate proposal must not be described as implemented or evaluated.",
     "The W&B evidence bundle remains canonical for success totals and dataset interpretation.",
-    "The editable PPTX is not redistributed; the complete 17-slide rendered presentation is bundled."
+    "The editable PPTX is not redistributed; the complete 17-slide rendered presentation is bundled.",
+    "The text-only editorial adaptation preserves every architecture diagram, chart, embedded image, and connector; the original slide renderings remain bundled separately.",
+    "Operational aliases and theoretical interpretation are documented in theory.json and must not be read as renaming the historical runtime in source."
   ]
 }

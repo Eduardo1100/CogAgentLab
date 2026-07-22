@@ -37,7 +37,12 @@ chronology, and interpretation constraints are recorded in
 `evidence/architecture_2025/`. A separate source audit of the current runtime
 lives in `evidence/current_architecture_2026/`. The public page presents both
 runtime diagrams and all 17 slides as full-resolution renderings while keeping
-the editable PPTX out of the bundle.
+the editable PPTX out of the bundle. The primary gallery is a text-only
+editorial adaptation: every historical architecture diagram, chart, embedded
+image, and connector is unchanged, and the original slide renderings remain
+bundled separately. `theory.json` explains historical terms such as
+`Conscious_Agent` and `World Model:` as an operational belief-state update
+rather than a consciousness or simulator claim.
 
 ## What Is Here
 

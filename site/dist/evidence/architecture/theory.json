@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "continuity-of-mind-operational-theory-2025",
+  "status": "reader-facing interpretation of the audited March 2025 runtime; not a new empirical result",
+  "core_thesis": "Continuity is produced by explicit state management and constrained control: selected role outputs persist in a shared workspace, actions must return through environment feedback, and memory paths restore information that would otherwise fall outside the active context.",
+  "reader_facing_aliases": [
+    {
+      "runtime_label": "Conscious_Agent",
+      "reader_facing_label": "Belief-State Updater",
+      "basis": "The role ran after external perception and produced a revisable task-and-environment account rather than a plan or action."
+    },
+    {
+      "runtime_output_label": "World Model:",
+      "reader_facing_label": "Belief State",
+      "basis": "The output was a fallible textual hypothesis about current task state, progress, and uncertainty; it was not an executable simulator."
+    },
+    {
+      "historical_term": "global workspace",
+      "reader_facing_label": "bounded shared context plus constrained routing",
+      "basis": "A GroupChatManager admitted only legal next speakers, and selected outputs became visible to later roles in the group-chat context."
+    }
+  ],
+  "mechanisms": [
+    {
+      "name": "Shared workspace",
+      "explanation": "The conversation history externalized intermediate state so later roles could inspect prior perceptions, belief updates, plans, actions, and memory results."
+    },
+    {
+      "name": "Grounded control loop",
+      "explanation": "Planning led to motor output, motor output invoked the environment, and external perception returned the result before the belief state was revised."
+    },
+    {
+      "name": "Focus loop",
+      "explanation": "When routed through focus, the system replayed the task and most recent percept to re-ground the shared context before another belief update."
+    },
+    {
+      "name": "Episode-local continuity",
+      "explanation": "Retrieval could return the current game's time-ordered observation trace, preserving task-local history inside the episode."
+    },
+    {
+      "name": "Conceptual consolidation",
+      "explanation": "Supported rules accumulated across games, were embedded with all-MiniLM-L6-v2, clustered with KMeans, and reduced to representative rules for later retrieval."
+    }
+  ],
+  "interpretation_boundaries": [
+    "The labels 'Conscious_Agent' and 'World Model' are historical runtime names, not claims of sentience or phenomenal consciousness.",
+    "The textual belief state was not a learned environment simulator and could be wrong.",
+    "The 139-game run did not retrieve prior-game transcripts or prior belief histories.",
+    "The later summit deck includes broader intended architecture and future work; run-specific claims come from run_architecture.json.",
+    "The unpublished paper is used only to recover the designers' theoretical framing, not to establish evaluation totals or the exact run configuration."
+  ],
+  "sources": [
+    {
+      "type": "audited runtime reconstruction",
+      "path": "run_architecture.json",
+      "authority": "primary source for the evaluated configuration"
+    },
+    {
+      "type": "owner-supplied summit deck",
+      "filename": "Cognitive LLM Agents-slides(2).pptx",
+      "sha256": "5a52b704f8ee7bab7c2b016d1b7906e52a4b681c79b021e81545e1f35e73d3c5",
+      "authority": "historical architecture and presentation framing; exact run claims require runtime audit"
+    },
+    {
+      "type": "owner-supplied unpublished TeX draft",
+      "attribution": "drafted by Yixiao Wang and Aaron Zheng after the Block implementation and before the summit presentation, per Eduardo Cortes",
+      "sha256": "020a9b7930ca22c8f54ac7da5fa5d80496240ee210f0210548dd5e434b444b86",
+      "access": "not bundled",
+      "authority": "interpretive source only"
+    }
+  ]
+}

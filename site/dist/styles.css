@@ -605,6 +605,61 @@ h1 {
   color: #9b511a;
 }
 
+.architecture-theory {
+  margin-top: 1.25rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid #b9c9c0;
+  border-radius: 0.9rem;
+  background: #f3f7f4;
+}
+
+.theory-heading {
+  max-width: 880px;
+}
+
+.theory-heading h4 {
+  margin: 0.35rem 0 0;
+  color: var(--green-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.8vw, 2.25rem);
+  font-weight: 500;
+}
+
+.theory-heading > p:last-child {
+  color: var(--muted);
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+
+.theory-grid article {
+  padding: 0.95rem;
+  border-top: 3px solid var(--green);
+  background: var(--white);
+}
+
+.theory-grid h5 {
+  margin: 0;
+  color: var(--green-dark);
+  font-size: 0.9rem;
+}
+
+.theory-grid p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.theory-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 800;
+}
+
 .deck-section {
   background: #ebe9df;
 }
@@ -652,6 +707,45 @@ h1 {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
+}
+
+.source-deck {
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid #c8cbc3;
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 58%);
+}
+
+.source-deck summary {
+  color: var(--green-dark);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.source-deck p {
+  color: var(--muted);
+}
+
+.source-slide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.source-slide-links a {
+  display: inline-grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid #aebbb4;
+  border-radius: 999px;
+  place-items: center;
+  color: var(--green-dark);
+  background: var(--white);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .dark-section {
@@ -1046,7 +1140,8 @@ code {
 
   .branch-grid,
   .historical-memory-grid,
-  .current-support-grid {
+  .current-support-grid,
+  .theory-grid {
     grid-template-columns: 1fr;
   }
 
