@@ -27,7 +27,16 @@ Then open `http://localhost:8000`. Source exports, hashes, known conditions, and
 the canonical 139-row table live in `evidence/alfworld_20250328/`. Publication
 uses the narrow scope defined in `SHOWCASE-LICENSING.md`: it does not relicense
 the existing collaborative codebase, W&B source exports, model outputs, or
-historical material. Award and sponsor claims remain outside the showcase.
+historical material. The award certificate is not bundled; sponsorship and
+contribution chronology are explicitly identified as owner-attested.
+
+The architecture section distinguishes the initial design phase, the
+solo implementation behind the 139-game evaluation, and the later CogAgentLab
+extension. It also separates the summit's historical hackathon-team credit from
+the evaluated implementation's contribution map. Slide-level provenance,
+owner-attested chronology, and interpretation constraints are recorded in
+`evidence/architecture_2025/`. The public page also presents all 17 slides as
+full-resolution renderings while keeping the editable PPTX out of the bundle.
 
 ## What Is Here
 

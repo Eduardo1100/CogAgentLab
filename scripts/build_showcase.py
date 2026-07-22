@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
 DIST_DIR = SITE_DIR / "dist"
 EVIDENCE_DIR = ROOT / "evidence" / "alfworld_20250328"
+ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "architecture_2025"
+ARCHITECTURE_SLIDES_DIR = ARCHITECTURE_EVIDENCE_DIR / "rendered_slides"
 SUMMARY_PATH = EVIDENCE_DIR / "derived" / "summary.json"
 RESULTS_PATH = EVIDENCE_DIR / "derived" / "game_results.csv"
 MANIFEST_PATH = EVIDENCE_DIR / "manifest.json"
@@ -163,12 +165,25 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
             EVIDENCE_DIR / "SHA256SUMS"
         ).read_bytes(),
         DIST_DIR / "evidence" / "README.md": (EVIDENCE_DIR / "README.md").read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "README.md": (
+            ARCHITECTURE_EVIDENCE_DIR / "README.md"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "manifest.json": (
+            ARCHITECTURE_EVIDENCE_DIR / "manifest.json"
+        ).read_bytes(),
     }
     for source in manifest["sources"]:
         filename = source["file"]
         outputs[DIST_DIR / "evidence" / "source" / filename] = (
             EVIDENCE_DIR / "source" / filename
         ).read_bytes()
+    slide_paths = sorted(ARCHITECTURE_SLIDES_DIR.glob("slide-*.png"))
+    if len(slide_paths) != 17:
+        raise ValueError(f"Expected 17 rendered slides, found {len(slide_paths)}")
+    for slide_path in slide_paths:
+        outputs[
+            DIST_DIR / "evidence" / "architecture" / "slides" / slide_path.name
+        ] = slide_path.read_bytes()
     return outputs
 
 

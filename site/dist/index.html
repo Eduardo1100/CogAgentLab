@@ -18,6 +18,8 @@
         <a class="wordmark" href="#top">CogAgentLab</a>
         <div class="nav-links">
           <a href="#result">Result</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#deck">Deck</a>
           <a href="#system">System</a>
           <a href="#evidence">Evidence</a>
           <a href="#limits">Limits</a>
@@ -26,12 +28,15 @@
       <div id="top" class="hero-grid">
         <div>
           <p class="eyebrow">Claim-audited project record · Eduardo Cortes</p>
-          <h1>From a team cognitive architecture to an agent-directed research lab.</h1>
+          <h1>From an integrated cognitive architecture to an agent-directed research lab.</h1>
           <p class="lede">
-            Continuity of Mind began as a collaborative Global-Workspace-style
-            architecture for LLM agents. CogAgentLab is the subsequent system for
-            running it across environments, preserving evidence, diagnosing failures,
-            and handing focused changes to coding agents for human review.
+            Continuity of Mind began when Eduardo Cortes designed a
+            Global-Workspace-style architecture that integrated a hackathon team's
+            component-level research. He later implemented and evaluated that
+            architecture in a separate, overlapping GenAI at Berkeley project
+            sponsored by Block, Inc. CogAgentLab is the subsequent system for running
+            it across environments, preserving evidence, diagnosing failures, and
+            handing focused changes to coding agents for human review.
           </p>
           <div class="actions">
             <a class="button primary" href="#evidence">Inspect the evidence</a>
@@ -46,10 +51,6 @@
           <p>
             A historical 139-game evaluation, its full metric trajectory, and the
             current research harness are directly supported by linked artifacts.
-          </p>
-          <p class="boundary-note">
-            It does not present the historical result as out-of-distribution, a
-            production evaluator, or solely authored work.
           </p>
         </aside>
       </div>
@@ -152,6 +153,251 @@
         </div>
       </section>
 
+      <section id="architecture" class="section architecture-section" aria-labelledby="architecture-title">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture lineage</p>
+          <h2 id="architecture-title">The evaluated system sits between a design and a research lab.</h2>
+          <p>
+            The hackathon combined team component research with Eduardo's GWT
+            architecture and integration. Eduardo then implemented and evaluated the
+            integrated system in a different but overlapping sponsored project.
+            CogAgentLab later wrapped that runtime in a repeatable, multi-environment
+            improvement system.
+          </p>
+        </div>
+
+        <ol class="architecture-timeline" aria-label="Architecture development stages">
+          <li>
+            <span class="stage-number">01</span>
+            <p class="stage-label">Hackathon phase · collaborative inputs</p>
+            <h3>GWT architecture and component research</h3>
+            <p>
+              Eduardo designed and integrated the Global Workspace architecture using
+              insights from the team's component work. The judged presentation covered
+              design principles and component results, not the 139-game run.
+            </p>
+          </li>
+          <li class="evaluated-stage">
+            <span class="stage-number">02</span>
+            <p class="stage-label">Block-sponsored project · evaluated</p>
+            <h3>Solo implementation and evaluation</h3>
+            <p>
+              In a separate, overlapping GenAI at Berkeley project, Eduardo implemented
+              the integrated system and ran the evaluation; Yixiao Wang occasionally
+              advised. Enhanced planning and active conceptual memory produced the
+              recorded 121/139 result.
+            </p>
+          </li>
+          <li>
+            <span class="stage-number">03</span>
+            <p class="stage-label">Post-graduation extension</p>
+            <h3>CogAgentLab</h3>
+            <p>
+              Four environment adapters, persistent evidence, analyst traces, and
+              coding-agent iterations turned the architecture into a research lab.
+            </p>
+          </li>
+        </ol>
+
+        <figure class="evaluated-architecture">
+          <div class="architecture-figure-heading">
+            <div>
+              <p class="eyebrow">Configuration behind the 87.05% result</p>
+              <h3>Context window as a managed cognitive workspace</h3>
+            </div>
+            <dl class="configuration-strip">
+              <div><dt>Model</dt><dd>GPT-4o</dd></div>
+              <div><dt>Split</dt><dd>ALFWorld valid_seen</dd></div>
+              <div><dt>Active memory</dt><dd>Conceptual</dd></div>
+            </dl>
+          </div>
+
+          <div class="architecture-map" role="img" aria-label="ALFWorld feedback enters a context window managed as a global workspace. A context-sensitive controller routes work among perception, belief, decision, focus, imagination, and motor agents. A concept agent records concepts, clusters and summarizes them, and reinserts summaries at the next episode. Episodic memory was excluded from the 139-game evaluation.">
+            <div class="architecture-node environment-node">
+              <span class="node-kicker">Environment</span>
+              <strong>ALFWorld state</strong>
+              <small>feedback in · actions out</small>
+            </div>
+
+            <span class="flow-arrow" aria-hidden="true">↔</span>
+
+            <div class="workspace-node">
+              <span class="node-kicker">Cognitive global workspace</span>
+              <strong>Context window</strong>
+              <div class="controller-node">Context-sensitive controller</div>
+              <div class="agent-cluster" aria-label="Specialized agents">
+                <span>Perception</span>
+                <span>Belief</span>
+                <span>Decision</span>
+                <span>Focus</span>
+                <span>Idea</span>
+                <span>Motor</span>
+              </div>
+            </div>
+
+            <span class="flow-arrow" aria-hidden="true">↔</span>
+
+            <div class="architecture-node memory-node">
+              <span class="node-kicker">Active conceptual memory</span>
+              <strong>Learn across episodes</strong>
+              <ol>
+                <li>Generate or update concepts</li>
+                <li>Record and cluster</li>
+                <li>Summarize prototypes</li>
+                <li>Inject next episode</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="excluded-memory">
+            <span aria-hidden="true">×</span>
+            <p>
+              <strong>Episodic memory was not active in the full run.</strong>
+              It was implemented and tested separately, but the 139-game result
+              used enhanced planning plus conceptual memory.
+            </p>
+          </div>
+
+          <figcaption>
+            Original schematic derived from the summer 2025 summit presentation,
+            whose title slide retained the original hackathon-team credit. It preserves
+            the configuration boundary reported on slide 14; the W&B exports remain
+            canonical for the outcome.
+          </figcaption>
+        </figure>
+
+        <div class="architecture-provenance">
+          <p>
+            <strong>Source boundary:</strong> the presentation names Eduardo Cortes,
+            Aaron Zheng, Yixiao Wang, Bhaskar Mishra, Bingyi Chen, and Will Cai because
+            the summit slot came from the original hackathon team. Per Eduardo's
+            account, that credit line is not a map of contributions to the later
+            evaluated implementation. The editable PPTX is not redistributed; all 17
+            rendered slides appear below.
+          </p>
+          <a href="evidence/architecture/manifest.json">Architecture provenance manifest</a>
+        </div>
+      </section>
+
+      <section id="deck" class="section deck-section" aria-labelledby="deck-title">
+        <div class="section-heading">
+          <p class="eyebrow">Berkeley Agent Summit · summer 2025</p>
+          <h2 id="deck-title">The complete Continuity of Mind presentation.</h2>
+          <p>
+            These 17 slides are full-resolution renderings of the owner-supplied
+            summit deck. Select any slide to open the original 1600×900 rendering.
+            Slides 14–15 report the historical evaluation and smaller component
+            experiments; slide 16 is explicitly a future direction, not part of the
+            evaluated system.
+          </p>
+        </div>
+
+        <div class="slide-gallery" aria-label="Complete 17-slide summit presentation">
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-01.png">
+              <img src="evidence/architecture/slides/slide-01.png" width="1600" height="900" alt="Title slide for Continuity of Mind: Grounded, Memory-Driven Cognition in LLM Agents, with the UC Berkeley seal and six-name hackathon-team credit line.">
+            </a>
+            <figcaption><span>01</span>Continuity of Mind</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-02.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-02.png" width="1600" height="900" alt="Research framing for large cognitive models, including the research question, objective, and motivation for integrating artificial experience.">
+            </a>
+            <figcaption><span>02</span>Towards large cognitive models</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-03.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-03.png" width="1600" height="900" alt="Chain-of-thought prompting diagram showing working-memory activations interacting with text stored in a context window.">
+            </a>
+            <figcaption><span>03</span>Chain-of-thought insight</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-04.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-04.png" width="1600" height="900" alt="Explanation of the context window as a dynamic cognitive substrate, contrasting reactive System 1 behavior with reflective System 2 reasoning.">
+            </a>
+            <figcaption><span>04</span>From reactive to structured cognition</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-05.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-05.png" width="1600" height="900" alt="Continuity of Mind meta-agent framework listing the controller, cognition loops, global workspace, belief states, episodic memory, and conceptual memory.">
+            </a>
+            <figcaption><span>05</span>Meta-agent framework</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-06.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-06.png" width="1600" height="900" alt="Network diagram of specialized cognition loops for perception, executive control, imagination, belief, motor output, memory, and learning.">
+            </a>
+            <figcaption><span>06</span>Cognition loops</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-07.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-07.png" width="1600" height="900" alt="Memory-flow diagram connecting an LLM agent and context window to long-term conceptual and episodic memory through tool calls and procedural insertion.">
+            </a>
+            <figcaption><span>07</span>Memory flow</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-08.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-08.png" width="1600" height="900" alt="Episodic-memory diagram showing belief states recorded at episode end and retrieved from earlier episodes into the context window.">
+            </a>
+            <figcaption><span>08</span>Episodic memory</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-09.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-09.png" width="1600" height="900" alt="Detailed episodic-memory slide explaining belief-state construction, time-ordered episode storage, and retrieval for grounding future reasoning.">
+            </a>
+            <figcaption><span>09</span>Contextual trace of experience</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-10.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-10.png" width="1600" height="900" alt="Repeated network view of cognition loops, highlighting the connections among specialized agents.">
+            </a>
+            <figcaption><span>10</span>Cognition loops revisited</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-11.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-11.png" width="1600" height="900" alt="Conceptual-memory slide explaining concept generation, recording, semantic clustering, representative prototypes, and reinsertion into the next episode.">
+            </a>
+            <figcaption><span>11</span>Semantic knowledge integration</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-12.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-12.png" width="1600" height="900" alt="Conceptual-memory pipeline from the concept agent through context, recording, storage, semantic clustering, and prototype memory.">
+            </a>
+            <figcaption><span>12</span>Conceptual memory flow</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-13.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-13.png" width="1600" height="900" alt="Final network view of the perception, executive-control, autopilot, imagination, memory, learning, and motor-output loops.">
+            </a>
+            <figcaption><span>13</span>Integrated cognition loops</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-14.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-14.png" width="1600" height="900" alt="ALFWorld evaluation slide reporting 87.05 percent across 139 tasks with enhanced planning and active conceptual memory, alongside four trajectory charts.">
+            </a>
+            <figcaption><span>14</span>ALFWorld evaluation</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-15.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-15.png" width="1600" height="900" alt="Experimental-results slide summarizing smaller conceptual- and episodic-memory studies with a retrieval table and actions-per-success chart.">
+            </a>
+            <figcaption><span>15</span>Component experiments</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-16.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-16.png" width="1600" height="900" alt="Future-work proposal for cognition within a unified substrate, showing attention and MLP layers linked to an internal global workspace.">
+            </a>
+            <figcaption><span>16</span>Future unified substrate</figcaption>
+          </figure>
+          <figure class="deck-slide">
+            <a href="evidence/architecture/slides/slide-17.png">
+              <img loading="lazy" decoding="async" src="evidence/architecture/slides/slide-17.png" width="1600" height="900" alt="Closing slide reading Thank You.">
+            </a>
+            <figcaption><span>17</span>Thank you</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section id="system" class="section dark-section" aria-labelledby="system-title">
         <div class="section-heading">
           <p class="eyebrow">Current system</p>
@@ -226,14 +472,19 @@
                 <td><span class="status verified">Verified</span></td>
               </tr>
               <tr>
-                <td>Coding-agent iteration loop</td>
-                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Driver</a> and <a href="https://github.com/Eduardo1100/CogAgentLab/pull/53">merged trace-driven change stack</a></td>
+                <td>Architecture used for the 139-game run</td>
+                <td><a href="evidence/architecture/manifest.json">Slide-level architecture manifest</a> and <a href="evidence/game_results.csv">canonical game table</a></td>
                 <td><span class="status verified">Verified</span></td>
               </tr>
               <tr>
-                <td>Hackathon award and sponsor naming</td>
-                <td>External publication evidence or approval not yet bundled</td>
-                <td><span class="status pending">Pending</span></td>
+                <td>Contribution chronology and Block-sponsored project context</td>
+                <td><a href="evidence/architecture/README.md">Attribution and chronology boundary</a></td>
+                <td><span class="status attested">Owner-attested</span></td>
+              </tr>
+              <tr>
+                <td>Coding-agent iteration loop</td>
+                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Driver</a> and <a href="https://github.com/Eduardo1100/CogAgentLab/pull/53">merged trace-driven change stack</a></td>
+                <td><span class="status verified">Verified</span></td>
               </tr>
             </tbody>
           </table>
@@ -264,13 +515,14 @@
         </div>
         <div class="limits-grid">
           <div>
-            <h3>Collaborative origin</h3>
+            <h3>Contribution boundary</h3>
             <p>
-              Historical CognitiveLLM git history includes Eduardo Cortes, Bhaskar
-              Mishra, Yixiao Wang, Will Cai, and Aaron Zheng. The core historical
-              <code>gwt_agent.py</code> work specifically includes Eduardo, Bhaskar,
-              and Yixiao. Eduardo's later work integrated and extensively redesigned
-              that architecture, ran the evaluation, and developed CogAgentLab.
+              The hackathon component research and entry were collaborative. Eduardo
+              reports that he designed and integrated the GWT architecture from those
+              inputs, then independently implemented the integrated system used for
+              evaluation in a different, overlapping Block-sponsored project; Yixiao
+              occasionally advised. Eduardo became the team's main organizer after the
+              hackathon, but was never formally designated team leader.
             </p>
           </div>
           <div>
@@ -288,7 +540,9 @@
               The showcase code and original authored content have narrowly scoped
               licenses. Those notices do not relicense the existing CogAgentLab
               codebase, source exports, model outputs, or historical team material.
-              Award evidence and sponsor naming remain outside this page.
+              The award certificate is not bundled. Block sponsorship and the detailed
+              contribution chronology are disclosed as owner-attested rather than
+              independently verified by the summit deck.
             </p>
           </div>
         </div>
