@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An operational theory of continuity, belief state, routing, memory, and the historical Conscious_Agent name in Continuity of Mind."
+    >
+    <link rel="canonical" href="https://eduardo1100.github.io/CogAgentLab/theory.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="What “conscious” meant in Continuity of Mind">
+    <meta property="og:description" content="A source-bounded explanation of belief state, constrained routing, grounded feedback, memory, and the historical Conscious_Agent name.">
+    <meta property="og:url" content="https://eduardo1100.github.io/CogAgentLab/theory.html">
+    <meta property="og:image" content="https://eduardo1100.github.io/CogAgentLab/social-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>What “conscious” meant · Continuity of Mind</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="hero theory-hero">
+      <nav aria-label="Primary">
+        <a class="wordmark" href="index.html">CogAgentLab</a>
+        <div class="nav-links">
+          <a href="index.html#architecture">Architecture</a>
+          <a href="index.html#deck">Deck</a>
+          <a href="index.html#system">Current system</a>
+          <a href="index.html#evidence">Evidence</a>
+        </div>
+      </nav>
+      <div id="top" class="hero-grid theory-hero-grid">
+        <div>
+          <p class="eyebrow">Architecture note · historical terminology</p>
+          <h1>“Conscious” was a role name, not a sentience claim.</h1>
+          <p class="lede">
+            The March 2025 runtime called one routed component
+            <code>Conscious_Agent</code>. Its observable job was narrower: after a new
+            percept, it wrote a revisable account of task state, progress, and
+            uncertainty for the other components to use. This page explains the theory
+            behind that design, what the implementation supports, and why CogAgentLab
+            now calls the role <code>Belief_State_Agent</code>.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#short-reading">Start with the qualification</a>
+            <a class="button secondary" href="index.html#architecture">Return to the architecture</a>
+          </div>
+        </div>
+        <aside class="boundary theory-boundary" aria-label="Consciousness claim boundary">
+          <p class="boundary-label">The claim boundary</p>
+          <p>
+            Nothing in the run establishes subjective experience, self-awareness,
+            phenomenal consciousness, or a persistent inner self.
+          </p>
+          <p class="boundary-note">
+            “Functional consciousness” was historical shorthand for globally available
+            task state and coordinated cognitive control. The public explanation uses
+            operational terms because they are more precise.
+          </p>
+        </aside>
+      </div>
+    </header>
+
+    <main id="main" class="theory-page">
+      <section id="short-reading" class="section theory-section">
+        <article class="theory-shell theory-opening">
+          <p class="eyebrow">The shortest correct reading</p>
+          <h2>Continuity was maintained, not possessed.</h2>
+          <p class="theory-deck">
+            The system did not contain a single agent with a continuous stream of
+            awareness. It maintained continuity as an engineering invariant: preserve
+            a task-relevant state, expose it to the right operator, require action to
+            return through environment feedback, and recover information when the
+            active context became incomplete.
+          </p>
+          <blockquote class="theory-thesis">
+            <strong>Operational thesis</strong>
+            <span>
+              Coherent long-horizon behavior can emerge when state, control, feedback,
+              and memory are made explicit—even though each individual model call is
+              temporary and fallible.
+            </span>
+          </blockquote>
+          <nav class="theory-toc" aria-label="Theory page sections">
+            <a href="#mechanism">Mechanism</a>
+            <a href="#terminology">Terminology</a>
+            <a href="#workspace">Workspace theory</a>
+            <a href="#memory">Memory boundary</a>
+            <a href="#evolution">Evolution</a>
+            <a href="#evidence-boundary">Evidence boundary</a>
+          </nav>
+        </article>
+      </section>
+
+      <section id="mechanism" class="section theory-section theory-section-alt">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Mechanistic account</p>
+            <h2>Four operations turned separate model calls into one task loop.</h2>
+            <p>
+              The architecture treated continuity as a control problem. Specialized
+              roles could contribute only through a constrained transition graph, and
+              every action had to encounter the environment before the central state
+              could be revised.
+            </p>
+          </div>
+          <ol class="theory-principles">
+            <li>
+              <span class="theory-number">01</span>
+              <h3>Externalize state</h3>
+              <p>
+                A textual belief state compressed the latest percept, task progress,
+                unresolved facts, and uncertainty into a representation later roles
+                could inspect.
+              </p>
+            </li>
+            <li>
+              <span class="theory-number">02</span>
+              <h3>Constrain control</h3>
+              <p>
+                The AutoGen GroupChatManager allowed only legal next speakers. The
+                route—not an unconstrained conversation—determined whether the system
+                planned, acted, focused, retrieved, imagined, or learned.
+              </p>
+            </li>
+            <li>
+              <span class="theory-number">03</span>
+              <h3>Close the loop</h3>
+              <p>
+                Planning produced motor output; the environment executed it; external
+                perception returned the result; only then did the belief state update.
+                This cycle repeatedly forced reasoning back onto observable evidence.
+              </p>
+            </li>
+            <li>
+              <span class="theory-number">04</span>
+              <h3>Restore context</h3>
+              <p>
+                Focus replayed the task and latest percept. Memory retrieval restored
+                the current-game observation history and representative learned rules
+                when those details were no longer salient in the shared context.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="terminology" class="section theory-section">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Historical names, observable functions</p>
+            <h2>What <code>Conscious_Agent</code> actually did.</h2>
+            <p>
+              The name came from the project’s cognitive analogy. The trace-level role
+              was an epistemic state updater: it interpreted a percept and emitted a
+              textual hypothesis labeled <code>World Model:</code>. It did not execute
+              actions, and its output was neither guaranteed true nor executable as a
+              simulator.
+            </p>
+          </div>
+          <div class="definition-table-wrap">
+            <table class="definition-table">
+              <thead>
+                <tr>
+                  <th>Historical term</th>
+                  <th>Observed or intended function</th>
+                  <th>Reader-facing term</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Conscious_Agent</code></td>
+                  <td>Revises the shared account of the current task after perception.</td>
+                  <td><strong>Belief-state updater</strong></td>
+                </tr>
+                <tr>
+                  <td><code>World Model:</code></td>
+                  <td>A fallible textual hypothesis about state, progress, and uncertainty.</td>
+                  <td><strong>Belief state</strong></td>
+                </tr>
+                <tr>
+                  <td>Global workspace</td>
+                  <td>Shared group-chat context plus a constrained next-speaker policy.</td>
+                  <td><strong>Shared state and routing</strong></td>
+                </tr>
+                <tr>
+                  <td>Autopilot loop</td>
+                  <td>The short belief → plan → act → perceive cycle used for ordinary progress.</td>
+                  <td><strong>Grounded action loop</strong></td>
+                </tr>
+                <tr>
+                  <td>Focus loop</td>
+                  <td>Replays the task and latest valid observation without taking an action.</td>
+                  <td><strong>Context recovery</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="qualification-callout">
+            <h3>Why the qualification matters</h3>
+            <p>
+              In philosophy and neuroscience, consciousness can refer to subjective
+              experience, reportability, access, self-modeling, wakefulness, or other
+              distinct phenomena. The evaluated artifacts address none of those as a
+              scientific measurement. They show a software system coordinating
+              specialized operations through shared state. Using “belief-state updater”
+              names the implemented responsibility without importing a stronger claim.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="workspace" class="section theory-section theory-dark-section">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Why invoke Global Workspace Theory?</p>
+            <h2>The analogy concerns access and coordination.</h2>
+            <p>
+              Global Workspace Theory motivated a division between specialized
+              processors and information made broadly available for control. In the
+              runtime, selected role outputs entered one bounded conversation history;
+              later roles could use that history, while the transition graph limited
+              which role could speak next.
+            </p>
+          </div>
+          <div class="theory-boundary-grid">
+            <article>
+              <p class="boundary-kicker">The analogy helps explain</p>
+              <ul>
+                <li>why specialized perception, planning, action, and memory roles share state;</li>
+                <li>why only selected outputs influence the next operation;</li>
+                <li>why the system needs routing, re-grounding, and memory retrieval; and</li>
+                <li>how a temporary model call can participate in a longer-lived task process.</li>
+              </ul>
+            </article>
+            <article>
+              <p class="boundary-kicker">The analogy does not establish</p>
+              <ul>
+                <li>subjective or phenomenal experience;</li>
+                <li>a unified self persisting independently of stored state;</li>
+                <li>biological fidelity to human cognition; or</li>
+                <li>that global availability is sufficient for consciousness.</li>
+              </ul>
+            </article>
+          </div>
+          <p class="theory-note">
+            The unpublished draft used <em>functional consciousness</em> in this narrow
+            access-and-control sense and explicitly disclaimed sentience and human-like
+            subjective experience. That framing is useful intellectual history, not an
+            empirical conclusion of the 139-game evaluation.
+          </p>
+        </div>
+      </section>
+
+      <section id="memory" class="section theory-section">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Theory versus evaluated configuration</p>
+            <h2>Episodex was broader than the memory used in the canonical run.</h2>
+            <p>
+              The project’s memory theory organized experience into evolving belief
+              states, episode traces, and reusable conceptual abstractions. The March
+              2025 run implemented only part of that intended system, so theory and
+              evaluation must remain separate.
+            </p>
+          </div>
+          <div class="memory-boundary-grid">
+            <article class="memory-active">
+              <span class="memory-status">Active in the run</span>
+              <h3>Current-game trace</h3>
+              <p>
+                The system appended time-ordered observations and could retrieve that
+                local history during the same game. This supported within-task
+                continuity.
+              </p>
+            </article>
+            <article class="memory-active">
+              <span class="memory-status">Active across games</span>
+              <h3>Conceptual rules</h3>
+              <p>
+                Learned rules accumulated, were embedded with MiniLM, clustered with
+                KMeans, and reduced to representative rules for later retrieval.
+              </p>
+            </article>
+            <article class="memory-inactive">
+              <span class="memory-status">Not active in the run</span>
+              <h3>Prior-episode transcripts</h3>
+              <p>
+                Earlier game transcripts or earlier belief histories were not
+                retrieved in the canonical evaluation, despite appearing in the
+                broader Episodex design.
+              </p>
+            </article>
+          </div>
+          <p class="theory-note light-note">
+            Dynamic episode segmentation, relevance-driven prior-episode retrieval,
+            and broader claims about memory-driven generalization belong to the design
+            program. The 87.05% outcome should not be read as a clean causal test of
+            every proposed memory mechanism.
+          </p>
+        </div>
+      </section>
+
+      <section id="evolution" class="section theory-section theory-section-alt">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Terminology and architecture evolution</p>
+            <h2>The engineering thesis survived the vocabulary.</h2>
+          </div>
+          <ol class="theory-evolution">
+            <li>
+              <span>March 2025</span>
+              <h3>Evaluated runtime</h3>
+              <p>
+                <code>Conscious_Agent</code> produced <code>World Model:</code> updates
+                inside a constrained AutoGen transition graph.
+              </p>
+            </li>
+            <li>
+              <span>Post-implementation draft</span>
+              <h3>Functional framing</h3>
+              <p>
+                The unpublished paper described global access, memory coordination,
+                grounding, and goal-directed control as “functional consciousness,”
+                while disclaiming sentience.
+              </p>
+            </li>
+            <li>
+              <span>Summer 2025</span>
+              <h3>Summit presentation</h3>
+              <p>
+                The deck presented the broader cognitive and memory architecture. Its
+                diagrams are historical design artifacts, not an exact manifest of the
+                evaluated configuration.
+              </p>
+            </li>
+            <li>
+              <span>Current CogAgentLab</span>
+              <h3>Operational names and typed state</h3>
+              <p>
+                <code>Belief_State_Agent</code>, typed <code>DecisionState</code>,
+                guarded action bursts, and evidence-triggered deliberation make the
+                same control questions explicit without the consciousness label.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="evidence-boundary" class="section theory-section">
+        <div class="theory-shell">
+          <div class="theory-heading-block">
+            <p class="eyebrow">Epistemic status</p>
+            <h2>What is evidence, what is interpretation, and what is not claimed.</h2>
+          </div>
+          <div class="epistemic-grid">
+            <article>
+              <span class="status verified">Source-audited</span>
+              <h3>Runtime structure</h3>
+              <p>
+                Role names, allowed transitions, tool paths, active memory channels,
+                action budgets, and trace frequencies come from the same-day source
+                and preserved run artifacts.
+              </p>
+            </article>
+            <article>
+              <span class="status attested">Interpretation</span>
+              <h3>Continuity theory</h3>
+              <p>
+                The account of state, access, control, and memory explains why the
+                design may cohere. It is an architectural interpretation, not a causal
+                decomposition of the 87.05% result.
+              </p>
+            </article>
+            <article>
+              <span class="status not-claimed">Not claimed</span>
+              <h3>Conscious experience</h3>
+              <p>
+                No artifact tests sentience, subjective experience, selfhood, or
+                biological similarity. The page makes no claim about them.
+              </p>
+            </article>
+          </div>
+
+          <div class="theory-sources">
+            <h3>Sources and further inspection</h3>
+            <ul>
+              <li><a href="evidence/architecture/run_architecture.json">Evaluated runtime reconstruction</a> — primary source for the March 2025 configuration.</li>
+              <li><a href="evidence/architecture/theory.json">Machine-readable interpretation record</a> — aliases, mechanisms, sources, and boundaries.</li>
+              <li><a href="evidence/architecture/manifest.json">Summit deck manifest</a> — provenance and integrity for the historical presentation.</li>
+              <li><a href="evidence/current-architecture/manifest.json">Current architecture manifest</a> — source audit of CogAgentLab’s present control structure.</li>
+              <li><a href="index.html#evidence">Claim-to-evidence ledger</a> — outcome and attribution evidence for the wider showcase.</li>
+            </ul>
+            <p>
+              The unpublished paper draft by Yixiao Wang and Aaron Zheng was supplied
+              by Eduardo Cortes and used only as an interpretive source for the
+              historical theory. It is not redistributed and does not establish the
+              evaluation total, dataset split, or exact runtime configuration.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>CogAgentLab · operational theory of the historical runtime</p>
+      <p>
+        <a href="index.html">Project record</a> ·
+        <a href="SHOWCASE-LICENSING.md">Showcase licensing</a> ·
+        <a href="LICENSE-SHOWCASE-CODE">MIT notice</a>
+      </p>
+    </footer>
+  </body>
+</html>

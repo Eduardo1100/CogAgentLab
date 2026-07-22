@@ -2,6 +2,10 @@
 
 [![CI](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml/badge.svg)](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml)
 
+[Project showcase](https://eduardo1100.github.io/CogAgentLab/) ·
+[Evaluated run](https://eduardo1100.github.io/CogAgentLab/#result) ·
+[Operational theory](https://eduardo1100.github.io/CogAgentLab/theory.html)
+
 `CogAgentLab` is a Python 3.11 project for running cognitive-agent evaluations and tracking experiment results through a FastAPI API backed by Postgres, Redis, and MinIO.
 
 ## Evidence-backed project record
@@ -40,9 +44,10 @@ runtime diagrams and all 17 slides as full-resolution renderings while keeping
 the editable PPTX out of the bundle. The primary gallery is a text-only
 editorial adaptation: every historical architecture diagram, chart, embedded
 image, and connector is unchanged, and the original slide renderings remain
-bundled separately. `theory.json` explains historical terms such as
-`Conscious_Agent` and `World Model:` as an operational belief-state update
-rather than a consciousness or simulator claim.
+bundled separately. The public `site/theory.html` essay explains historical
+terms such as `Conscious_Agent` and `World Model:` as operational belief-state
+updates rather than consciousness or simulator claims; `theory.json` preserves
+the same interpretation in machine-readable form.
 
 ## What Is Here
 

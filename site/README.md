@@ -35,5 +35,7 @@ full-resolution renderings. The public gallery uses a text-only editorial
 adaptation; architecture diagrams, charts, embedded images, and connectors are
 unchanged, and the original renderings remain bundled separately. The six-name
 summit credit line is preserved as hackathon-team context rather than treated
-as an implementation contribution map. Operational aliases and their limits are
-recorded in `evidence/architecture_2025/theory.json`.
+as an implementation contribution map. `site/theory.html` provides the
+reader-facing operational explanation of the historical consciousness language;
+its aliases and limits remain recorded in machine-readable form at
+`evidence/architecture_2025/theory.json`.

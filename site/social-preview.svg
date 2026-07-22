@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">CogAgentLab: from cognitive architecture to research lab</title>
+  <desc id="description">Evidence-backed project record showing 121 of 139 ALFWorld tasks completed and a Designed, Evaluated, Extended development arc.</desc>
+  <defs>
+    <radialGradient id="glow" cx="82%" cy="12%" r="76%">
+      <stop offset="0" stop-color="#3f8068" stop-opacity="0.7"/>
+      <stop offset="0.52" stop-color="#17352a" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#10231c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#10231c"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="56" y="48" width="1088" height="534" rx="24" fill="none" stroke="#466657" stroke-width="2"/>
+
+  <text x="88" y="102" fill="#9cdbbd" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="2.2">COGAGENTLAB · EDUARDO CORTES</text>
+  <text x="88" y="170" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">From cognitive architecture</text>
+  <text x="88" y="230" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">to agent-directed research lab.</text>
+
+  <text x="88" y="349" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="96" letter-spacing="-4">121 / 139</text>
+  <text x="90" y="384" fill="#9cdbbd" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="1.6">ALFWORLD VALID_SEEN TASKS COMPLETED · GPT-4O</text>
+
+  <g transform="translate(88 442)">
+    <rect width="314" height="88" rx="14" fill="#183329" stroke="#466657"/>
+    <text x="22" y="31" fill="#8bc4ab" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.5">01 · DESIGNED</text>
+    <text x="22" y="61" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="23">Cognitive architecture</text>
+  </g>
+  <g transform="translate(422 442)">
+    <rect width="314" height="88" rx="14" fill="#183329" stroke="#466657"/>
+    <text x="22" y="31" fill="#8bc4ab" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.5">02 · EVALUATED</text>
+    <text x="22" y="61" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="23">Complete 139-game run</text>
+  </g>
+  <g transform="translate(756 442)">
+    <rect width="356" height="88" rx="14" fill="#183329" stroke="#466657"/>
+    <text x="22" y="31" fill="#8bc4ab" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.5">03 · EXTENDED</text>
+    <text x="22" y="61" fill="#fffdf8" font-family="Georgia, 'Times New Roman', serif" font-size="23">Four-environment research lab</text>
+  </g>
+
+  <text x="1112" y="558" text-anchor="end" fill="#b9c9c1" font-family="Arial, Helvetica, sans-serif" font-size="16">Evidence-backed project record</text>
+</svg>
