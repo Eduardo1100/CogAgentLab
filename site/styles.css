@@ -36,6 +36,12 @@ a {
   text-underline-offset: 0.2em;
 }
 
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #d89a4a;
+  outline-offset: 4px;
+}
+
 .skip-link {
   position: absolute;
   left: -999px;
@@ -204,6 +210,14 @@ h1 {
   font-size: 1.08rem;
 }
 
+.section .eyebrow {
+  color: var(--green);
+}
+
+.dark-section .eyebrow {
+  color: #8bc4ab;
+}
+
 .metric-grid {
   display: grid;
   grid-template-columns: 1.4fr repeat(3, 1fr);
@@ -360,17 +374,22 @@ h1 {
 }
 
 .architecture-figure-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: end;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.architecture-figure-heading > .eyebrow,
+.current-architecture-heading > .eyebrow {
+  margin-bottom: 0;
 }
 
 .architecture-figure-heading h3 {
-  max-width: 680px;
+  max-width: 900px;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2rem, 4vw, 3.7rem);
+  font-size: clamp(2rem, 4vw, 3.45rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -378,7 +397,7 @@ h1 {
 
 .configuration-strip {
   display: grid;
-  min-width: 410px;
+  width: min(100%, 760px);
   grid-template-columns: repeat(4, 1fr);
   margin: 0;
   border-top: 1px solid var(--line);
@@ -421,32 +440,44 @@ h1 {
 }
 
 .architecture-provenance {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
   margin-top: 1rem;
-  padding: 1.2rem;
-  border-top: 1px solid #cbd6cf;
-  align-items: center;
+  padding: 1rem 1.2rem;
+  border: 1px solid #cbd6cf;
+  border-radius: 0.8rem;
+  background: rgb(255 255 255 / 55%);
   color: var(--muted);
   font-size: 0.86rem;
 }
 
-.architecture-provenance p {
+.architecture-provenance summary {
+  color: var(--green-dark);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.provenance-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #cbd6cf;
+  align-items: start;
+}
+
+.provenance-content p {
   max-width: 820px;
   margin: 0;
 }
 
-.architecture-provenance a {
-  flex: 0 0 auto;
-  font-weight: 800;
-}
-
 .provenance-links {
   display: flex;
-  flex: 0 0 auto;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.provenance-links a {
+  font-weight: 800;
 }
 
 .historical-runtime {
@@ -614,7 +645,10 @@ h1 {
 }
 
 .theory-heading {
-  max-width: 880px;
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
 
 .theory-heading h4 {
@@ -631,9 +665,9 @@ h1 {
 
 .theory-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.65rem;
-  margin-top: 1.2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.4rem;
 }
 
 .theory-grid article {
@@ -655,8 +689,9 @@ h1 {
 }
 
 .theory-link {
-  display: inline-block;
-  margin-top: 1rem;
+  display: block;
+  width: fit-content;
+  margin: 1.1rem auto 0;
   font-weight: 800;
 }
 
@@ -723,14 +758,11 @@ h1 {
   cursor: pointer;
 }
 
-.source-deck p {
-  color: var(--muted);
-}
-
 .source-slide-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+  margin-top: 1rem;
 }
 
 .source-slide-links a {
@@ -766,10 +798,10 @@ h1 {
 }
 
 .current-architecture-heading {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  align-items: end;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
 }
 
 .current-architecture-heading h3,
@@ -784,9 +816,13 @@ h1 {
 }
 
 .current-architecture-heading a {
-  flex: 0 0 auto;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid #547064;
+  border-radius: 999px;
   color: #bfe9d5;
+  background: #183329;
   font-weight: 800;
+  text-decoration: none;
 }
 
 .adapter-rail {
@@ -1113,11 +1149,8 @@ code {
     grid-template-columns: 1fr 1fr;
   }
 
-  .architecture-figure-heading,
-  .architecture-provenance,
-  .current-architecture-heading {
-    align-items: start;
-    flex-direction: column;
+  .provenance-content {
+    grid-template-columns: 1fr;
   }
 
   .configuration-strip {
@@ -1140,9 +1173,12 @@ code {
 
   .branch-grid,
   .historical-memory-grid,
-  .current-support-grid,
-  .theory-grid {
+  .current-support-grid {
     grid-template-columns: 1fr;
+  }
+
+  .theory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-grid {
@@ -1182,6 +1218,10 @@ code {
   .state-chip-grid,
   .control-paths {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .theory-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-grid {
