@@ -39,6 +39,9 @@ jobs:
       - name: Pytest
         run: uv run pytest tests/
 
+      - name: Verify historical evidence and showcase
+        run: python scripts/build_showcase.py --check
+
   docker-build:
     name: Docker build
     needs: quality

@@ -4,6 +4,29 @@
 
 `CogAgentLab` is a Python 3.11 project for running cognitive-agent evaluations and tracking experiment results through a FastAPI API backed by Postgres, Redis, and MinIO.
 
+## Evidence-backed project record
+
+The local showcase connects the current research harness to a claim-audited
+historical CognitiveLLM evaluation. Preserved W&B exports establish 121 successes
+across 139 ALFWorld `valid_seen` games (87.05%). The result is intentionally not
+described as out-of-distribution: the historical runner used an
+`eval_out_of_distribution` constructor mode while loading the `valid_seen` data
+path.
+
+Build and verify the preview without deploying anything:
+
+```bash
+make showcase
+make showcase-check
+python -m http.server --directory site/dist 8000
+```
+
+Then open `http://localhost:8000`. Source exports, hashes, known conditions, and
+the canonical 139-row table live in `evidence/alfworld_20250328/`. Publication
+uses the narrow scope defined in `SHOWCASE-LICENSING.md`: it does not relicense
+the existing collaborative codebase, W&B source exports, model outputs, or
+historical material. Award and sponsor claims remain outside the showcase.
+
 ## What Is Here
 
 - FastAPI service for experiment and episode data in `src/app.py`

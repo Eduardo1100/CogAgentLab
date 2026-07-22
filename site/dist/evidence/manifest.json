@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "alfworld-valid-seen-20250328-golden-pyramid-593",
+  "title": "Historical CognitiveLLM ALFWorld evaluation",
+  "exported_at": "2026-07-21T19:29:24.019-07:00",
+  "wandb": {
+    "entity": "eduardocortes1100-university-of-california-berkeley",
+    "project": "cognitive_agents",
+    "run_id": "vee8kzls",
+    "display_name": "golden-pyramid-593",
+    "url": "https://wandb.ai/eduardocortes1100-university-of-california-berkeley/cognitive_agents/runs/vee8kzls",
+    "access": "authentication-required"
+  },
+  "evaluation": {
+    "environment": "ALFWorld",
+    "configured_dataset": "valid_seen",
+    "constructor_mode": "eval_out_of_distribution",
+    "model_configured_in_run_era_code": "gpt-4o",
+    "loader_skip_messages": 1,
+    "games_evaluated": 139,
+    "successes": 121,
+    "failures": 18,
+    "success_rate": 0.8705035971223022,
+    "max_actions_per_game": 60
+  },
+  "provenance": {
+    "historical_repository": "https://github.com/project194-cognitivellm/cognitivellm",
+    "trace_commit": "52071d0d537ede5127a0cbc87ca06500f6ef4316",
+    "trace_path": "runs-1/20250328_103103",
+    "trace_url": "https://github.com/project194-cognitivellm/cognitivellm/tree/52071d0d537ede5127a0cbc87ca06500f6ef4316/runs-1/20250328_103103",
+    "aggregate_trace_sha256": "aa0a5216d0c39421f07f27f5a3e7ef7be5ddf6f608bfeb0a9671a23fcc3f20a7",
+    "run_era_behavior_commit": "bbee903db99f9c4f3b08e01c102f2abcbde91c08",
+    "run_era_code_url": "https://github.com/project194-cognitivellm/cognitivellm/blob/bbee903db99f9c4f3b08e01c102f2abcbde91c08/run_autogen_eval_loop.py",
+    "run_era_config_url": "https://github.com/project194-cognitivellm/cognitivellm/blob/bbee903db99f9c4f3b08e01c102f2abcbde91c08/configs/eval_config.yaml",
+    "dataset_loader_log_url": "https://github.com/project194-cognitivellm/cognitivellm/blob/52071d0d537ede5127a0cbc87ca06500f6ef4316/wandb/run-20250228_061528-xebu0min/files/output.log",
+    "code_snapshot_note": "The trace exhibits behavior first committed later on the run date. The exact dirty-worktree diff used by the run was not preserved."
+  },
+  "known_conditions": [
+    {
+      "id": "dataset-label",
+      "description": "The runner passed train_eval=eval_out_of_distribution, but the configured data path was json_2.1.1/valid_seen. The result must not be described as valid_unseen or OOD."
+    },
+    {
+      "id": "loader-omission",
+      "description": "ALFWorld emitted one missing-solvable-key skip before exposing 139 executable games. The skipped candidate is not included in the evaluated-game denominator."
+    },
+    {
+      "id": "game-123-context-error",
+      "description": "Game 123 exceeded the model context window and is counted as a failure in the 139-game denominator."
+    },
+    {
+      "id": "game-139-persistence",
+      "description": "W&B records game 139 as a 60-action failure. The historical runner checked for final completion before saving local result files, so game_139/result.txt and the 139th aggregate entry are absent."
+    }
+  ],
+  "sources": [
+    {
+      "file": "wandb_export_2026-07-21T19_28_54.009-07_00.csv",
+      "metric": "success",
+      "sha256": "405b1217b6fcd6078000fe4de9832145a9280b17b0e6e1f9310536774fedcdaa"
+    },
+    {
+      "file": "wandb_export_2026-07-21T19_29_01.418-07_00.csv",
+      "metric": "runtime",
+      "sha256": "16e90213d59847991c22fe6e19a9ad2ebf5df8ffa27985182e10ffe538e431cf"
+    },
+    {
+      "file": "wandb_export_2026-07-21T19_29_12.065-07_00.csv",
+      "metric": "actions_taken",
+      "sha256": "c588109cb18158b4b04c31a4deb541bd3540017217bff9aafb1863d0dc4530c9"
+    },
+    {
+      "file": "wandb_export_2026-07-21T19_29_18.620-07_00.csv",
+      "metric": "avg_actions_taken_per_successful_game",
+      "sha256": "369afa9337491615b8ffa7f841f23519813e3ef4c92af742044134db3fbde690"
+    },
+    {
+      "file": "wandb_export_2026-07-21T19_29_24.019-07_00.csv",
+      "metric": "success_rate",
+      "sha256": "6df17c622a7265d687e9e425a120f92b86435afe3a945c0af067f2e8bc6bbd1d"
+    }
+  ]
+}

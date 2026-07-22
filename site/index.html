@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Evidence-backed project record for Continuity of Mind and CogAgentLab."
+    >
+    <title>CogAgentLab · Evidence-backed project record</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="hero">
+      <nav aria-label="Primary">
+        <a class="wordmark" href="#top">CogAgentLab</a>
+        <div class="nav-links">
+          <a href="#result">Result</a>
+          <a href="#system">System</a>
+          <a href="#evidence">Evidence</a>
+          <a href="#limits">Limits</a>
+        </div>
+      </nav>
+      <div id="top" class="hero-grid">
+        <div>
+          <p class="eyebrow">Claim-audited project record · Eduardo Cortes</p>
+          <h1>From a team cognitive architecture to an agent-directed research lab.</h1>
+          <p class="lede">
+            Continuity of Mind began as a collaborative Global-Workspace-style
+            architecture for LLM agents. CogAgentLab is the subsequent system for
+            running it across environments, preserving evidence, diagnosing failures,
+            and handing focused changes to coding agents for human review.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#evidence">Inspect the evidence</a>
+            <a
+              class="button secondary"
+              href="https://github.com/Eduardo1100/CogAgentLab"
+            >View the repository</a>
+          </div>
+        </div>
+        <aside class="boundary" aria-label="Publication boundary">
+          <p class="boundary-label">What this page establishes</p>
+          <p>
+            A historical 139-game evaluation, its full metric trajectory, and the
+            current research harness are directly supported by linked artifacts.
+          </p>
+          <p class="boundary-note">
+            It does not present the historical result as out-of-distribution, a
+            production evaluator, or solely authored work.
+          </p>
+        </aside>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="result" class="section result-section" aria-labelledby="result-title">
+        <div class="section-heading">
+          <p class="eyebrow">Historical evaluation · March 2025</p>
+          <h2 id="result-title">A complete 139-game result, reconciled across sources.</h2>
+          <p>
+            W&B run <code>vee8kzls</code> records every game. The exported trajectory
+            agrees with the committed per-game results for games 1–138 and supplies
+            the final game outcome omitted by a local file-save ordering bug.
+          </p>
+        </div>
+
+        <div class="metric-grid" aria-label="Historical evaluation summary">
+          <div class="metric hero-metric">
+            <span class="metric-value">{{SUCCESS_RATE_PERCENT}}%</span>
+            <span class="metric-label">task success</span>
+            <span class="metric-detail">{{SUCCESS_COUNT}} of {{GAME_COUNT}} games</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">{{FAILURE_COUNT}}</span>
+            <span class="metric-label">failures</span>
+            <span class="metric-detail">counted in the denominator</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">{{AVG_ACTIONS}}</span>
+            <span class="metric-label">actions per success</span>
+            <span class="metric-detail">mean across successful games</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">{{RUNTIME_HOURS}} h</span>
+            <span class="metric-label">recorded runtime</span>
+            <span class="metric-detail">summed per-game wall time</span>
+          </div>
+        </div>
+
+        <figure class="chart-card">
+          {{CHART_SVG}}
+          <figcaption>
+            Cumulative task success over the ordered evaluation. The endpoint is
+            recomputed from the exported binary outcomes; no smoothing or selected
+            subset is used.
+          </figcaption>
+        </figure>
+
+        <div class="fact-grid">
+          <article>
+            <h3>Dataset</h3>
+            <p>
+              ALFWorld <code>valid_seen</code>. The runner's constructor mode was
+              named <code>eval_out_of_distribution</code>, but its configured data
+              path was not <code>valid_unseen</code>.
+            </p>
+          </article>
+          <article>
+            <h3>Denominator</h3>
+            <p>
+              ALFWorld emitted one missing-solvable-key skip before exposing 139
+              executable games. All 139 appear in W&B and define the denominator.
+            </p>
+          </article>
+          <article>
+            <h3>Failures retained</h3>
+            <p>
+              Game 123's context-window error and game 139's 60-action failure are
+              both counted. Failure IDs: {{FAILURE_IDS}}.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="system" class="section dark-section" aria-labelledby="system-title">
+        <div class="section-heading">
+          <p class="eyebrow">Current system</p>
+          <h2 id="system-title">The research contribution is the improvement loop.</h2>
+          <p>
+            CogAgentLab connects a cognitive multi-agent runtime to environment
+            adapters, persistent experiment records, analyst traces, and a local
+            coding-agent workflow. The human remains responsible for deciding which
+            changes survive.
+          </p>
+        </div>
+
+        <ol class="loop" aria-label="Agent-directed research loop">
+          <li><strong>Run</strong><span>Execute a bounded debug episode.</span></li>
+          <li><strong>Observe</strong><span>Persist metrics, transcripts, and an analyst trace.</span></li>
+          <li><strong>Diagnose</strong><span>Turn the latest failure evidence into a focused prompt.</span></li>
+          <li><strong>Change</strong><span>Claude Code or Codex implements and checks one iteration.</span></li>
+          <li><strong>Review</strong><span>Eduardo reviews, keeps, revises, or rejects the branch.</span></li>
+        </ol>
+
+        <div class="system-grid">
+          <article>
+            <span class="number">04</span>
+            <h3>environment adapters</h3>
+            <p>ALFWorld, ScienceWorld, Tales, and NetHack share one evaluation surface.</p>
+          </article>
+          <article>
+            <span class="number">CI</span>
+            <h3>public checks</h3>
+            <p>Ruff, pytest, and the Docker build passed on the linked main-branch run.</p>
+          </article>
+          <article>
+            <span class="number">02</span>
+            <h3>coding-agent paths</h3>
+            <p>Separate Claude Code and Codex prompts, branch counters, and invocation paths.</p>
+          </article>
+        </div>
+
+        <div class="code-links" aria-label="Current implementation links">
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/gwt_agent.py">Cognitive runtime</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py">Environment adapters</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Iteration driver</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/actions/runs/23368772244">Passing public CI run</a>
+        </div>
+      </section>
+
+      <section id="evidence" class="section" aria-labelledby="evidence-title">
+        <div class="section-heading">
+          <p class="eyebrow">Claim-to-evidence ledger</p>
+          <h2 id="evidence-title">Every public statement has a bounded source.</h2>
+        </div>
+
+        <div class="evidence-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Statement</th><th>Primary evidence</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>121/139 historical task success</td>
+                <td><a href="evidence/game_results.csv">Canonical game table</a> and <a href="evidence/summary.json">generated summary</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Raw multi-agent traces exist</td>
+                <td><a href="https://github.com/project194-cognitivellm/cognitivellm/tree/52071d0d537ede5127a0cbc87ca06500f6ef4316/runs-1/20250328_103103">Immutable historical trace tree</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Current four-environment harness</td>
+                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py">Adapter implementation</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Coding-agent iteration loop</td>
+                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Driver</a> and <a href="https://github.com/Eduardo1100/CogAgentLab/pull/53">merged trace-driven change stack</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Hackathon award and sponsor naming</td>
+                <td>External publication evidence or approval not yet bundled</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="downloads">
+          <h3>Download the evidence</h3>
+          <p>
+            The source exports are preserved byte-for-byte. The merged table,
+            summary, and checksums are regenerated with the repository validator.
+          </p>
+          <div class="download-links">
+            <a href="evidence/game_results.csv">Game results CSV</a>
+            <a href="evidence/summary.json">Summary JSON</a>
+            <a href="evidence/manifest.json">Provenance manifest</a>
+            <a href="evidence/SHA256SUMS">Source checksums</a>
+            <a
+              href="https://wandb.ai/eduardocortes1100-university-of-california-berkeley/cognitive_agents/runs/vee8kzls"
+            >Original W&B run <small>(authentication required)</small></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="limits" class="section limits-section" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Attribution and limitations</p>
+          <h2 id="limits-title">A strong link should show where the evidence stops.</h2>
+        </div>
+        <div class="limits-grid">
+          <div>
+            <h3>Collaborative origin</h3>
+            <p>
+              Historical CognitiveLLM git history includes Eduardo Cortes, Bhaskar
+              Mishra, Yixiao Wang, Will Cai, and Aaron Zheng. The core historical
+              <code>gwt_agent.py</code> work specifically includes Eduardo, Bhaskar,
+              and Yixiao. Eduardo's later work integrated and extensively redesigned
+              that architecture, ran the evaluation, and developed CogAgentLab.
+            </p>
+          </div>
+          <div>
+            <h3>Reproduction boundary</h3>
+            <p>
+              The historical run used uncommitted code later captured in a same-day
+              commit, so the exact dirty diff is unavailable. The result is auditable
+              from metrics and traces, but not represented as a clean one-command
+              historical reproduction.
+            </p>
+          </div>
+          <div>
+            <h3>Publication boundary</h3>
+            <p>
+              The showcase code and original authored content have narrowly scoped
+              licenses. Those notices do not relicense the existing CogAgentLab
+              codebase, source exports, model outputs, or historical team material.
+              Award evidence and sponsor naming remain outside this page.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>CogAgentLab · evidence generated from preserved source exports</p>
+      <p>
+        Export provenance frozen {{EXPORT_DATE}} ·
+        <a href="SHOWCASE-LICENSING.md">Showcase licensing</a> ·
+        <a href="LICENSE-SHOWCASE-CODE">MIT notice</a>
+      </p>
+    </footer>
+  </body>
+</html>

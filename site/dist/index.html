@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Evidence-backed project record for Continuity of Mind and CogAgentLab."
+    >
+    <title>CogAgentLab · Evidence-backed project record</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="hero">
+      <nav aria-label="Primary">
+        <a class="wordmark" href="#top">CogAgentLab</a>
+        <div class="nav-links">
+          <a href="#result">Result</a>
+          <a href="#system">System</a>
+          <a href="#evidence">Evidence</a>
+          <a href="#limits">Limits</a>
+        </div>
+      </nav>
+      <div id="top" class="hero-grid">
+        <div>
+          <p class="eyebrow">Claim-audited project record · Eduardo Cortes</p>
+          <h1>From a team cognitive architecture to an agent-directed research lab.</h1>
+          <p class="lede">
+            Continuity of Mind began as a collaborative Global-Workspace-style
+            architecture for LLM agents. CogAgentLab is the subsequent system for
+            running it across environments, preserving evidence, diagnosing failures,
+            and handing focused changes to coding agents for human review.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#evidence">Inspect the evidence</a>
+            <a
+              class="button secondary"
+              href="https://github.com/Eduardo1100/CogAgentLab"
+            >View the repository</a>
+          </div>
+        </div>
+        <aside class="boundary" aria-label="Publication boundary">
+          <p class="boundary-label">What this page establishes</p>
+          <p>
+            A historical 139-game evaluation, its full metric trajectory, and the
+            current research harness are directly supported by linked artifacts.
+          </p>
+          <p class="boundary-note">
+            It does not present the historical result as out-of-distribution, a
+            production evaluator, or solely authored work.
+          </p>
+        </aside>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="result" class="section result-section" aria-labelledby="result-title">
+        <div class="section-heading">
+          <p class="eyebrow">Historical evaluation · March 2025</p>
+          <h2 id="result-title">A complete 139-game result, reconciled across sources.</h2>
+          <p>
+            W&B run <code>vee8kzls</code> records every game. The exported trajectory
+            agrees with the committed per-game results for games 1–138 and supplies
+            the final game outcome omitted by a local file-save ordering bug.
+          </p>
+        </div>
+
+        <div class="metric-grid" aria-label="Historical evaluation summary">
+          <div class="metric hero-metric">
+            <span class="metric-value">87.05%</span>
+            <span class="metric-label">task success</span>
+            <span class="metric-detail">121 of 139 games</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">18</span>
+            <span class="metric-label">failures</span>
+            <span class="metric-detail">counted in the denominator</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">15.76</span>
+            <span class="metric-label">actions per success</span>
+            <span class="metric-detail">mean across successful games</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">37.1 h</span>
+            <span class="metric-label">recorded runtime</span>
+            <span class="metric-detail">summed per-game wall time</span>
+          </div>
+        </div>
+
+        <figure class="chart-card">
+          <svg viewBox="0 0 1000 360" role="img"
+            aria-labelledby="success-chart-title success-chart-description">
+          <title id="success-chart-title">Cumulative ALFWorld valid_seen task success</title>
+          <desc id="success-chart-description">
+            A cumulative success-rate line across 139 games, ending at 87.05 percent.
+            Eighteen failure marks appear below the chart.
+          </desc>
+          <style>
+            .chart-grid { stroke: #d6d4c8; stroke-width: 1; }
+            .chart-label { fill: #5d6963; font: 13px Inter, sans-serif; }
+            .chart-axis-title { fill: #17211d; font: 700 14px Inter, sans-serif; }
+            .chart-line { fill: none; stroke: #1c7658; stroke-width: 4; stroke-linejoin: round; }
+            .chart-end { fill: #1c7658; stroke: #fffdf8; stroke-width: 4; }
+            .chart-callout { fill: #123f35; font: 800 17px Inter, sans-serif; }
+            .failure-mark { stroke: #a86417; stroke-width: 3; }
+          </style>
+          <line x1="70" y1="298.00" x2="968" y2="298.00" class="chart-grid" /><text x="58" y="303.00" text-anchor="end" class="chart-label">80%</text><line x1="70" y1="232.00" x2="968" y2="232.00" class="chart-grid" /><text x="58" y="237.00" text-anchor="end" class="chart-label">85%</text><line x1="70" y1="166.00" x2="968" y2="166.00" class="chart-grid" /><text x="58" y="171.00" text-anchor="end" class="chart-label">90%</text><line x1="70" y1="100.00" x2="968" y2="100.00" class="chart-grid" /><text x="58" y="105.00" text-anchor="end" class="chart-label">95%</text><line x1="70" y1="34.00" x2="968" y2="34.00" class="chart-grid" /><text x="58" y="39.00" text-anchor="end" class="chart-label">100%</text>
+          <line x1="70" y1="298" x2="968"
+            y2="298" stroke="#78827d" />
+          <path d="M 70.00 34.00 L 76.51 34.00 L 83.01 34.00 L 89.52 34.00 L 96.03 34.00 L 102.54 34.00 L 109.04 34.00 L 115.55 34.00 L 122.06 34.00 L 128.57 166.00 L 135.07 154.00 L 141.58 144.00 L 148.09 135.54 L 154.59 128.29 L 161.10 122.00 L 167.61 116.50 L 174.12 111.65 L 180.62 107.33 L 187.13 103.47 L 193.64 100.00 L 200.14 96.86 L 206.65 94.00 L 213.16 91.39 L 219.67 89.00 L 226.17 86.80 L 232.68 84.77 L 239.19 82.89 L 245.70 81.14 L 252.20 125.03 L 258.71 122.00 L 265.22 119.16 L 271.72 116.50 L 278.23 114.00 L 284.74 111.65 L 291.25 147.14 L 297.75 144.00 L 304.26 141.03 L 310.77 138.21 L 317.28 135.54 L 323.78 133.00 L 330.29 130.59 L 336.80 128.29 L 343.30 126.09 L 349.81 124.00 L 356.32 122.00 L 362.83 120.09 L 369.33 118.26 L 375.84 116.50 L 382.35 114.82 L 388.86 113.20 L 395.36 111.65 L 401.87 135.54 L 408.38 133.62 L 414.88 131.78 L 421.39 130.00 L 427.90 128.29 L 434.41 149.79 L 440.91 147.79 L 447.42 145.86 L 453.93 144.00 L 460.43 142.20 L 466.94 140.45 L 473.45 138.76 L 479.96 137.13 L 486.46 135.54 L 492.97 134.00 L 499.48 132.51 L 505.99 131.06 L 512.49 148.78 L 519.00 147.14 L 525.51 145.55 L 532.01 144.00 L 538.52 142.49 L 545.03 141.03 L 551.54 139.60 L 558.04 138.21 L 564.55 154.00 L 571.06 152.46 L 577.57 167.67 L 584.07 166.00 L 590.58 164.37 L 597.09 162.78 L 603.59 161.23 L 610.10 159.71 L 616.61 158.24 L 623.12 172.14 L 629.62 170.55 L 636.13 169.00 L 642.64 167.48 L 649.14 166.00 L 655.65 164.55 L 662.16 163.13 L 668.67 175.94 L 675.17 188.47 L 681.68 186.84 L 688.19 185.25 L 694.70 183.69 L 701.20 182.16 L 707.71 180.67 L 714.22 179.20 L 720.72 177.76 L 727.23 176.35 L 733.74 174.97 L 740.25 173.62 L 746.75 172.29 L 753.26 170.98 L 759.77 182.04 L 766.28 180.67 L 772.78 191.43 L 779.29 190.00 L 785.80 188.59 L 792.30 187.21 L 798.81 185.86 L 805.32 184.53 L 811.83 183.22 L 818.33 181.93 L 824.84 180.67 L 831.35 179.42 L 837.86 178.20 L 844.36 177.00 L 850.87 186.73 L 857.38 185.48 L 863.88 194.98 L 870.39 204.32 L 876.90 213.52 L 883.41 212.10 L 889.91 210.69 L 896.42 209.31 L 902.93 207.95 L 909.43 206.62 L 915.94 205.30 L 922.45 204.00 L 928.96 202.72 L 935.46 201.46 L 941.97 200.22 L 948.48 199.00 L 954.99 197.80 L 961.49 196.61 L 968.00 204.94" class="chart-line" />
+          <line x1="128.57" y1="306" x2="128.57" y2="317" class="failure-mark" /><line x1="252.20" y1="306" x2="252.20" y2="317" class="failure-mark" /><line x1="291.25" y1="306" x2="291.25" y2="317" class="failure-mark" /><line x1="401.87" y1="306" x2="401.87" y2="317" class="failure-mark" /><line x1="434.41" y1="306" x2="434.41" y2="317" class="failure-mark" /><line x1="512.49" y1="306" x2="512.49" y2="317" class="failure-mark" /><line x1="564.55" y1="306" x2="564.55" y2="317" class="failure-mark" /><line x1="577.57" y1="306" x2="577.57" y2="317" class="failure-mark" /><line x1="623.12" y1="306" x2="623.12" y2="317" class="failure-mark" /><line x1="668.67" y1="306" x2="668.67" y2="317" class="failure-mark" /><line x1="675.17" y1="306" x2="675.17" y2="317" class="failure-mark" /><line x1="759.77" y1="306" x2="759.77" y2="317" class="failure-mark" /><line x1="772.78" y1="306" x2="772.78" y2="317" class="failure-mark" /><line x1="850.87" y1="306" x2="850.87" y2="317" class="failure-mark" /><line x1="863.88" y1="306" x2="863.88" y2="317" class="failure-mark" /><line x1="870.39" y1="306" x2="870.39" y2="317" class="failure-mark" /><line x1="876.90" y1="306" x2="876.90" y2="317" class="failure-mark" /><line x1="968.00" y1="306" x2="968.00" y2="317" class="failure-mark" />
+          <circle cx="968.00" cy="204.94" r="7" class="chart-end" />
+          <text x="956.00" y="190.94" text-anchor="end"
+            class="chart-callout">121 / 139 · 87.05%</text>
+          <text x="70.00" y="342" text-anchor="middle" class="chart-label">1</text><text x="291.25" y="342" text-anchor="middle" class="chart-label">35</text><text x="519.00" y="342" text-anchor="middle" class="chart-label">70</text><text x="746.75" y="342" text-anchor="middle" class="chart-label">105</text><text x="968.00" y="342" text-anchor="middle" class="chart-label">139</text>
+          <text x="519.00" y="359" text-anchor="middle"
+            class="chart-axis-title">Evaluated game</text>
+        </svg>
+          <figcaption>
+            Cumulative task success over the ordered evaluation. The endpoint is
+            recomputed from the exported binary outcomes; no smoothing or selected
+            subset is used.
+          </figcaption>
+        </figure>
+
+        <div class="fact-grid">
+          <article>
+            <h3>Dataset</h3>
+            <p>
+              ALFWorld <code>valid_seen</code>. The runner's constructor mode was
+              named <code>eval_out_of_distribution</code>, but its configured data
+              path was not <code>valid_unseen</code>.
+            </p>
+          </article>
+          <article>
+            <h3>Denominator</h3>
+            <p>
+              ALFWorld emitted one missing-solvable-key skip before exposing 139
+              executable games. All 139 appear in W&B and define the denominator.
+            </p>
+          </article>
+          <article>
+            <h3>Failures retained</h3>
+            <p>
+              Game 123's context-window error and game 139's 60-action failure are
+              both counted. Failure IDs: 10, 29, 35, 52, 57, 69, 77, 79, 86, 93, 94, 107, 109, 121, 123, 124, 125, 139.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="system" class="section dark-section" aria-labelledby="system-title">
+        <div class="section-heading">
+          <p class="eyebrow">Current system</p>
+          <h2 id="system-title">The research contribution is the improvement loop.</h2>
+          <p>
+            CogAgentLab connects a cognitive multi-agent runtime to environment
+            adapters, persistent experiment records, analyst traces, and a local
+            coding-agent workflow. The human remains responsible for deciding which
+            changes survive.
+          </p>
+        </div>
+
+        <ol class="loop" aria-label="Agent-directed research loop">
+          <li><strong>Run</strong><span>Execute a bounded debug episode.</span></li>
+          <li><strong>Observe</strong><span>Persist metrics, transcripts, and an analyst trace.</span></li>
+          <li><strong>Diagnose</strong><span>Turn the latest failure evidence into a focused prompt.</span></li>
+          <li><strong>Change</strong><span>Claude Code or Codex implements and checks one iteration.</span></li>
+          <li><strong>Review</strong><span>Eduardo reviews, keeps, revises, or rejects the branch.</span></li>
+        </ol>
+
+        <div class="system-grid">
+          <article>
+            <span class="number">04</span>
+            <h3>environment adapters</h3>
+            <p>ALFWorld, ScienceWorld, Tales, and NetHack share one evaluation surface.</p>
+          </article>
+          <article>
+            <span class="number">CI</span>
+            <h3>public checks</h3>
+            <p>Ruff, pytest, and the Docker build passed on the linked main-branch run.</p>
+          </article>
+          <article>
+            <span class="number">02</span>
+            <h3>coding-agent paths</h3>
+            <p>Separate Claude Code and Codex prompts, branch counters, and invocation paths.</p>
+          </article>
+        </div>
+
+        <div class="code-links" aria-label="Current implementation links">
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/gwt_agent.py">Cognitive runtime</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py">Environment adapters</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Iteration driver</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/actions/runs/23368772244">Passing public CI run</a>
+        </div>
+      </section>
+
+      <section id="evidence" class="section" aria-labelledby="evidence-title">
+        <div class="section-heading">
+          <p class="eyebrow">Claim-to-evidence ledger</p>
+          <h2 id="evidence-title">Every public statement has a bounded source.</h2>
+        </div>
+
+        <div class="evidence-table-wrap">
+          <table>
+            <thead>
+              <tr><th>Statement</th><th>Primary evidence</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>121/139 historical task success</td>
+                <td><a href="evidence/game_results.csv">Canonical game table</a> and <a href="evidence/summary.json">generated summary</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Raw multi-agent traces exist</td>
+                <td><a href="https://github.com/project194-cognitivellm/cognitivellm/tree/52071d0d537ede5127a0cbc87ca06500f6ef4316/runs-1/20250328_103103">Immutable historical trace tree</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Current four-environment harness</td>
+                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py">Adapter implementation</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Coding-agent iteration loop</td>
+                <td><a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Driver</a> and <a href="https://github.com/Eduardo1100/CogAgentLab/pull/53">merged trace-driven change stack</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Hackathon award and sponsor naming</td>
+                <td>External publication evidence or approval not yet bundled</td>
+                <td><span class="status pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="downloads">
+          <h3>Download the evidence</h3>
+          <p>
+            The source exports are preserved byte-for-byte. The merged table,
+            summary, and checksums are regenerated with the repository validator.
+          </p>
+          <div class="download-links">
+            <a href="evidence/game_results.csv">Game results CSV</a>
+            <a href="evidence/summary.json">Summary JSON</a>
+            <a href="evidence/manifest.json">Provenance manifest</a>
+            <a href="evidence/SHA256SUMS">Source checksums</a>
+            <a
+              href="https://wandb.ai/eduardocortes1100-university-of-california-berkeley/cognitive_agents/runs/vee8kzls"
+            >Original W&B run <small>(authentication required)</small></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="limits" class="section limits-section" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Attribution and limitations</p>
+          <h2 id="limits-title">A strong link should show where the evidence stops.</h2>
+        </div>
+        <div class="limits-grid">
+          <div>
+            <h3>Collaborative origin</h3>
+            <p>
+              Historical CognitiveLLM git history includes Eduardo Cortes, Bhaskar
+              Mishra, Yixiao Wang, Will Cai, and Aaron Zheng. The core historical
+              <code>gwt_agent.py</code> work specifically includes Eduardo, Bhaskar,
+              and Yixiao. Eduardo's later work integrated and extensively redesigned
+              that architecture, ran the evaluation, and developed CogAgentLab.
+            </p>
+          </div>
+          <div>
+            <h3>Reproduction boundary</h3>
+            <p>
+              The historical run used uncommitted code later captured in a same-day
+              commit, so the exact dirty diff is unavailable. The result is auditable
+              from metrics and traces, but not represented as a clean one-command
+              historical reproduction.
+            </p>
+          </div>
+          <div>
+            <h3>Publication boundary</h3>
+            <p>
+              The showcase code and original authored content have narrowly scoped
+              licenses. Those notices do not relicense the existing CogAgentLab
+              codebase, source exports, model outputs, or historical team material.
+              Award evidence and sponsor naming remain outside this page.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>CogAgentLab · evidence generated from preserved source exports</p>
+      <p>
+        Export provenance frozen 2026-07-21T19:29:24.019-07:00 ·
+        <a href="SHOWCASE-LICENSING.md">Showcase licensing</a> ·
+        <a href="LICENSE-SHOWCASE-CODE">MIT notice</a>
+      </p>
+    </footer>
+  </body>
+</html>
