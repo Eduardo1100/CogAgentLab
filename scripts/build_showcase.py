@@ -153,6 +153,7 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
     rows = read_results()
     outputs = {
         DIST_DIR / "index.html": render_index(summary, manifest, rows),
+        DIST_DIR / "theory.html": (SITE_DIR / "theory.html").read_bytes(),
         DIST_DIR / "styles.css": (SITE_DIR / "styles.css").read_bytes(),
         DIST_DIR / "favicon.svg": (SITE_DIR / "favicon.svg").read_bytes(),
         DIST_DIR / "LICENSE-SHOWCASE-CODE": (
@@ -223,16 +224,20 @@ def materialize(outputs: dict[Path, bytes], *, check: bool) -> None:
         path.write_bytes(content)
 
 
-def check_links(index: bytes, outputs: dict[Path, bytes]) -> None:
-    parser = LinkCollector()
-    parser.feed(index.decode("utf-8"))
+def check_links(outputs: dict[Path, bytes]) -> None:
     expected_paths = {path.resolve() for path in outputs}
-    for link in parser.links:
-        if link.startswith(("#", "http://", "https://", "mailto:")):
-            continue
-        target = (DIST_DIR / link.split("#", 1)[0]).resolve()
-        if target not in expected_paths:
-            raise ValueError(f"Broken bundled link: {link}")
+    pages = {
+        path: content for path, content in outputs.items() if path.suffix == ".html"
+    }
+    for page_path, page in pages.items():
+        parser = LinkCollector()
+        parser.feed(page.decode("utf-8"))
+        for link in parser.links:
+            if link.startswith(("#", "http://", "https://", "mailto:")):
+                continue
+            target = (page_path.parent / link.split("#", 1)[0]).resolve()
+            if target not in expected_paths:
+                raise ValueError(f"Broken bundled link in {page_path.name}: {link}")
 
 
 def check_privacy(outputs: dict[Path, bytes]) -> None:
@@ -259,8 +264,7 @@ def check_merge_conflict_markers(outputs: dict[Path, bytes]) -> None:
 def build(*, check: bool) -> None:
     summary = build_evidence(check=check)
     outputs = expected_outputs(summary)
-    index = outputs[DIST_DIR / "index.html"]
-    check_links(index, outputs)
+    check_links(outputs)
     check_privacy(outputs)
     check_merge_conflict_markers(outputs)
     materialize(outputs, check=check)

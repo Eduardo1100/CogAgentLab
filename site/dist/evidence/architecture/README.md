@@ -8,9 +8,10 @@ slides are preserved as 1600×900 PNG renderings in `rendered_slides/` and shown
 in the public showcase. A text-only editorial adaptation is preserved in
 `reframed_slides/`; it changes editable prose but leaves every architecture
 diagram, chart, embedded image, connector, and other visual object unchanged.
-The original renderings remain bundled as the historical source. `theory.json`
-explains the runtime in operational language, and `run_architecture.json`
-separately reconstructs the
+The original renderings remain bundled as the historical source. The public
+`site/theory.html` essay explains the runtime in operational language;
+`theory.json` preserves that interpretation in machine-readable form, and
+`run_architecture.json` separately reconstructs the
 runtime behind the March 2025 evaluation from the same-day code and preserved
 chat traces.
 
@@ -56,7 +57,8 @@ The “global workspace” is likewise used as an engineering description: a
 bounded shared context plus a constrained speaker-transition policy. The focus
 branch replayed the task and latest percept to re-ground that context. The
 memory branches restored a current-game observation trace and representative
-cross-game rules. `theory.json` records this interpretation and its boundaries.
+cross-game rules. The public theory page develops this interpretation for
+readers, while `theory.json` records its aliases, sources, and boundaries.
 
 The owner-supplied unpublished paper draft by Yixiao Wang and Aaron Zheng is an
 interpretive source for this explanation. It is not bundled and is not used to
