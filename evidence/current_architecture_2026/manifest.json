@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "cogagentlab-current-runtime-source-audit-2026-07-21",
+  "source_snapshot": {
+    "repository": "https://github.com/Eduardo1100/CogAgentLab",
+    "runtime_commit": "dce757481805583c91ddb1502a2c6ffc26482d47",
+    "audit_date": "2026-07-21",
+    "note": "Later showcase-only commits did not modify the audited runtime modules.",
+    "module_sources": {
+      "runtime": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/gwt_agent.py",
+      "decision_state": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/decision_state.py",
+      "deliberation_policy": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/deliberation_policy.py",
+      "environment_adapters": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py",
+      "runner": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/run_agent.py",
+      "iteration_driver": "https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py"
+    }
+  },
+  "environment_boundary": {
+    "protocol": "EnvironmentAdapter",
+    "implementations": [
+      "ALFWorldAdapter",
+      "ScienceWorldAdapter",
+      "TalesAdapter",
+      "NetHackAdapter"
+    ],
+    "shared_surface": [
+      "observation",
+      "admissible_actions",
+      "has_won",
+      "task",
+      "initial_observation",
+      "step",
+      "set_observation",
+      "infer_task_type",
+      "count_inadmissible_actions"
+    ]
+  },
+  "cognitive_runtime": {
+    "coordination": "AutoGen group chat with a deterministic transition graph and custom speaker-selection policy",
+    "active_roles": [
+      "Action_Agent",
+      "Thinking_Agent",
+      "Belief_State_Agent",
+      "Retrieve_Memory_Agent",
+      "Learning_Agent",
+      "Record_Long_Term_Memory_Agent",
+      "Focus_Agent",
+      "External_Perception_Agent",
+      "Internal_Perception_Agent_1",
+      "Internal_Perception_Agent_2",
+      "Internal_Perception_Agent_3",
+      "Echo_Agent"
+    ],
+    "fast_path": "Action_Agent can execute a guarded action sequence through External_Perception_Agent and Echo_Agent, then continue without a full belief/thinking round when the burst completes cleanly.",
+    "deliberation_path": "Belief_State_Agent receives the updated percept. Thinking_Agent is invoked on textual uncertainty, referent ambiguity, recent failures, interrupted options, a forced interval, state uncertainty, or a remote-room signal.",
+    "learning_path": "Learning_Agent is gated to task outcomes, then Record_Long_Term_Memory_Agent writes a deduplicated concept through its tool executor."
+  },
+  "typed_decision_state": {
+    "types": [
+      "ActionSurfaceState",
+      "GoalState",
+      "GroundingState",
+      "OptionState",
+      "ProgressState",
+      "UncertaintyState"
+    ],
+    "capabilities": [
+      "task contracts and ordered target progress",
+      "candidate, relation, substance, artifact, measurement, comparison, and conditional-branch grounding",
+      "referent resolution and remote-room signals",
+      "interruptible option contracts and pending action sequences",
+      "progress, stagnation, revisitation, novelty, and outcome accounting"
+    ],
+    "control": "The runtime scores and shortlists actions, executes low-risk bursts, interrupts on state or goal changes, and triggers expensive deliberation from typed signals."
+  },
+  "memory_runtime": {
+    "current_episode": "Compact per-action percept summaries are appended to curr_episodic_memory.",
+    "prior_episodes": "Completed episode belief states or percept traces are retained in memory and retrieved by similarity with a configurable top-k RAG path.",
+    "concepts": "Environment-scoped concepts are deduplicated, embedded, clustered, represented by cluster exemplars, and retrieved by similarity.",
+    "evaluation_guard": "Memory writes are disabled in valid_unseen evaluation mode while retrieval remains available."
+  },
+  "evidence_and_iteration": {
+    "persisted_outputs": [
+      "experiment and episode metadata",
+      "chat transcripts",
+      "structured analyst traces",
+      "architecture efficiency metrics",
+      "W&B metrics",
+      "object-store artifacts"
+    ],
+    "iteration_loop": "scripts/iterate_agent.py runs or reuses an experiment, summarizes its latest evidence, renders a scoped prompt, and invokes either Claude Code or Codex. The coding agent works on a numbered branch; a human reviews what survives."
+  },
+  "interpretation_boundary": [
+    "This manifest describes the checked-in runtime structure, not a performance result for all supported environments.",
+    "The architecture still contains substantial task- and environment-specific heuristics; docs/agent_architecture_roadmap.md explicitly identifies that coupling as ongoing technical debt.",
+    "The typed decision-state, option, and meta-control layers are partially implemented; the roadmap's learned policy layer remains a target rather than a completed component."
+  ]
+}

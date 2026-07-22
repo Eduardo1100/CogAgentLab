@@ -25,9 +25,12 @@ the published page.
 Deployment is defined in `.github/workflows/showcase-pages.yml`. GitHub Pages
 must be configured to use GitHub Actions before the workflow can deploy.
 
-The architecture schematic is an original, responsive reconstruction rather
-than an embedded slide image. Its claim map and source-deck hash are recorded in
-`evidence/architecture_2025/`. The editable PPTX is not bundled, but all 17
-slides are included as full-resolution renderings. The six-name summit credit
-line is preserved as hackathon-team context rather than treated as an
-implementation contribution map.
+The architecture schematics are original, responsive reconstructions rather
+than embedded slide images. The historical runtime figure is grounded in the
+same-day source and preserved chat traces; the current figure is grounded in an
+immutable CogAgentLab source snapshot. Their manifests live in
+`evidence/architecture_2025/` and `evidence/current_architecture_2026/`.
+The editable PPTX is not bundled, but all 17 slides remain included as
+full-resolution renderings. The six-name summit credit line is preserved as
+hackathon-team context rather than treated as an implementation contribution
+map.

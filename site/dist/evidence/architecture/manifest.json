@@ -50,7 +50,7 @@
     },
     {
       "slides": [14],
-      "claim": "The 139-task evaluation used enhanced planning and active conceptual memory while excluding episodic memory."
+      "claim": "The 139-task evaluation used enhanced planning and active conceptual memory while excluding retrieval of prior episode traces. The run-era code and traces show that a current-game observation history remained active."
     },
     {
       "slides": [16],
@@ -61,7 +61,8 @@
     "The summit title-slide credit preserves hackathon-team context and must not be interpreted as a contribution map for the evaluated implementation.",
     "The contribution and sponsorship chronology is owner-attested and is not independently established by the deck.",
     "Eduardo must not be described as a formally appointed team leader.",
-    "The deck does not establish that episodic memory contributed to the 139-game result.",
+    "The evaluated runtime retained a current-game observation trace but did not retrieve prior episode transcripts; the deck's shorthand 'episodic memory excluded' refers to the latter cross-game capability.",
+    "Run-specific architecture claims must be checked against run_architecture.json rather than inferred from the later summit schematic alone.",
     "The future unified-substrate proposal must not be described as implemented or evaluated.",
     "The W&B evidence bundle remains canonical for success totals and dataset interpretation.",
     "The editable PPTX is not redistributed; the complete 17-slide rendered presentation is bundled."

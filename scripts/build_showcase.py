@@ -19,9 +19,13 @@ DIST_DIR = SITE_DIR / "dist"
 EVIDENCE_DIR = ROOT / "evidence" / "alfworld_20250328"
 ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "architecture_2025"
 ARCHITECTURE_SLIDES_DIR = ARCHITECTURE_EVIDENCE_DIR / "rendered_slides"
+CURRENT_ARCHITECTURE_EVIDENCE_DIR = ROOT / "evidence" / "current_architecture_2026"
 SUMMARY_PATH = EVIDENCE_DIR / "derived" / "summary.json"
 RESULTS_PATH = EVIDENCE_DIR / "derived" / "game_results.csv"
 MANIFEST_PATH = EVIDENCE_DIR / "manifest.json"
+MERGE_CONFLICT_RE = re.compile(
+    rb"(?m)^(?:<<<<<<<(?: .*)?|=======|>>>>>>>(?: .*)?)\r?$"
+)
 
 
 class LinkCollector(HTMLParser):
@@ -171,6 +175,15 @@ def expected_outputs(summary: dict) -> dict[Path, bytes]:
         DIST_DIR / "evidence" / "architecture" / "manifest.json": (
             ARCHITECTURE_EVIDENCE_DIR / "manifest.json"
         ).read_bytes(),
+        DIST_DIR / "evidence" / "architecture" / "run_architecture.json": (
+            ARCHITECTURE_EVIDENCE_DIR / "run_architecture.json"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "current-architecture" / "README.md": (
+            CURRENT_ARCHITECTURE_EVIDENCE_DIR / "README.md"
+        ).read_bytes(),
+        DIST_DIR / "evidence" / "current-architecture" / "manifest.json": (
+            CURRENT_ARCHITECTURE_EVIDENCE_DIR / "manifest.json"
+        ).read_bytes(),
     }
     for source in manifest["sources"]:
         filename = source["file"]
@@ -225,12 +238,20 @@ def check_privacy(outputs: dict[Path, bytes]) -> None:
                 raise ValueError(f"Public bundle contains {label}: {path}")
 
 
+def check_merge_conflict_markers(outputs: dict[Path, bytes]) -> None:
+    """Reject unresolved Git conflict markers before they reach site/dist."""
+    for path, content in outputs.items():
+        if MERGE_CONFLICT_RE.search(content):
+            raise ValueError(f"Public bundle contains Git conflict markers: {path}")
+
+
 def build(*, check: bool) -> None:
     summary = build_evidence(check=check)
     outputs = expected_outputs(summary)
     index = outputs[DIST_DIR / "index.html"]
     check_links(index, outputs)
     check_privacy(outputs)
+    check_merge_conflict_markers(outputs)
     materialize(outputs, check=check)
 
 

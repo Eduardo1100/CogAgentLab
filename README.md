@@ -1,6 +1,4 @@
 # CogAgentLab
-[Project showcase](https://eduardo1100.github.io/CogAgentLab/) ·
-[Evidence summary](https://eduardo1100.github.io/CogAgentLab/evidence/summary.json)
 
 [![CI](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml/badge.svg)](https://github.com/Eduardo1100/CogAgentLab/actions/workflows/ci.yml)
 
@@ -33,10 +31,13 @@ contribution chronology are explicitly identified as owner-attested.
 The architecture section distinguishes the initial design phase, the
 solo implementation behind the 139-game evaluation, and the later CogAgentLab
 extension. It also separates the summit's historical hackathon-team credit from
-the evaluated implementation's contribution map. Slide-level provenance,
-owner-attested chronology, and interpretation constraints are recorded in
-`evidence/architecture_2025/`. The public page also presents all 17 slides as
-full-resolution renderings while keeping the editable PPTX out of the bundle.
+the evaluated implementation's contribution map. Slide-level provenance, a
+trace-and-code reconstruction of the evaluated runtime, owner-attested
+chronology, and interpretation constraints are recorded in
+`evidence/architecture_2025/`. A separate source audit of the current runtime
+lives in `evidence/current_architecture_2026/`. The public page presents both
+runtime diagrams and all 17 slides as full-resolution renderings while keeping
+the editable PPTX out of the bundle.
 
 ## What Is Here
 

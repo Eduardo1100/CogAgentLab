@@ -203,66 +203,75 @@
           <div class="architecture-figure-heading">
             <div>
               <p class="eyebrow">Configuration behind the 87.05% result</p>
-              <h3>Context window as a managed cognitive workspace</h3>
+              <h3>The run used a routed workspace with three distinct memory paths.</h3>
             </div>
             <dl class="configuration-strip">
               <div><dt>Model</dt><dd>GPT-4o</dd></div>
               <div><dt>Split</dt><dd>ALFWorld valid_seen</dd></div>
-              <div><dt>Active memory</dt><dd>Conceptual</dd></div>
+              <div><dt>Roles</dt><dd>12 active</dd></div>
+              <div><dt>Budget</dt><dd>2 × 30 actions</dd></div>
             </dl>
           </div>
 
-          <div class="architecture-map" role="img" aria-label="ALFWorld feedback enters a context window managed as a global workspace. A context-sensitive controller routes work among perception, belief, decision, focus, imagination, and motor agents. A concept agent records concepts, clusters and summarizes them, and reinserts summaries at the next episode. Episodic memory was excluded from the 139-game evaluation.">
-            <div class="architecture-node environment-node">
-              <span class="node-kicker">Environment</span>
-              <strong>ALFWorld state</strong>
-              <small>feedback in · actions out</small>
+          <div class="historical-runtime" role="img" aria-label="The evaluated runtime used a constrained AutoGen group chat. The core action loop routed Conscious Agent to Planning Agent, Motor Agent, External Perception Agent, and back to Conscious Agent. Conscious Agent could also route through a focus loop or a retrieval and learning loop. Memory retrieval returned an active current-game observation trace and active clustered conceptual rules; retrieval of earlier game transcripts was inactive.">
+            <div class="runtime-controller">
+              <span class="node-kicker">Constrained AutoGen workspace</span>
+              <strong>GroupChatManager selects only allowed next speakers</strong>
             </div>
 
-            <span class="flow-arrow" aria-hidden="true">↔</span>
-
-            <div class="workspace-node">
-              <span class="node-kicker">Cognitive global workspace</span>
-              <strong>Context window</strong>
-              <div class="controller-node">Context-sensitive controller</div>
-              <div class="agent-cluster" aria-label="Specialized agents">
-                <span>Perception</span>
-                <span>Belief</span>
-                <span>Decision</span>
-                <span>Focus</span>
-                <span>Idea</span>
-                <span>Motor</span>
-              </div>
+            <div class="core-route" aria-label="Core action and perception cycle">
+              <div class="route-node environment-node"><small>Environment</small><strong>ALFWorld</strong></div>
+              <span class="route-arrow" aria-hidden="true">→</span>
+              <div class="route-node"><small>Tool executor</small><strong>External Perception</strong></div>
+              <span class="route-arrow" aria-hidden="true">→</span>
+              <div class="route-node emphasized"><small>World model</small><strong>Conscious</strong></div>
+              <span class="route-arrow" aria-hidden="true">→</span>
+              <div class="route-node"><small>Plan</small><strong>Planning</strong></div>
+              <span class="route-arrow" aria-hidden="true">→</span>
+              <div class="route-node"><small>Act</small><strong>Motor</strong></div>
+              <span class="route-arrow return-arrow" aria-hidden="true">↩</span>
             </div>
 
-            <span class="flow-arrow" aria-hidden="true">↔</span>
-
-            <div class="architecture-node memory-node">
-              <span class="node-kicker">Active conceptual memory</span>
-              <strong>Learn across episodes</strong>
-              <ol>
-                <li>Generate or update concepts</li>
-                <li>Record and cluster</li>
-                <li>Summarize prototypes</li>
-                <li>Inject next episode</li>
-              </ol>
+            <div class="branch-grid">
+              <article>
+                <span class="branch-label">Retrieve / imagine</span>
+                <p><strong>Conscious</strong> → Retrieve Memory → Internal Perception 3 → Idea → Planning</p>
+              </article>
+              <article>
+                <span class="branch-label">Learn / consolidate</span>
+                <p>Internal Perception 3 → Learning → Record Long-Term Memory → Internal Perception 1 → Idea</p>
+              </article>
+              <article>
+                <span class="branch-label">Reset focus</span>
+                <p><strong>Conscious</strong> → Focus → Internal Perception 2 → Conscious</p>
+              </article>
             </div>
           </div>
 
-          <div class="excluded-memory">
-            <span aria-hidden="true">×</span>
-            <p>
-              <strong>Episodic memory was not active in the full run.</strong>
-              It was implemented and tested separately, but the 139-game result
-              used enhanced planning plus conceptual memory.
-            </p>
+          <div class="historical-memory-grid" aria-label="Memory configuration used in the evaluated run">
+            <article class="memory-active">
+              <span class="memory-status">Active · within game</span>
+              <h4>Episode-local observation trace</h4>
+              <p>Each action appended a time-ordered observation. Retrieval returned this current-game history to the workspace.</p>
+            </article>
+            <article class="memory-active">
+              <span class="memory-status">Active · across games</span>
+              <h4>Conceptual rule memory</h4>
+              <p>Learned rules accumulated in <code>memory1.txt</code>; MiniLM embeddings and KMeans selected representative rules for <code>memory2.txt</code>.</p>
+            </article>
+            <article class="memory-inactive">
+              <span class="memory-status">Inactive in this run</span>
+              <h4>Prior-episode trace retrieval</h4>
+              <p>Earlier game transcripts or belief histories were not retrieved. This is the cross-game episodic capability excluded on slide 14.</p>
+            </article>
           </div>
 
           <figcaption>
-            Original schematic derived from the summer 2025 summit presentation,
-            whose title slide retained the original hackathon-team credit. It preserves
-            the configuration boundary reported on slide 14; the W&B exports remain
-            canonical for the outcome.
+            Runtime reconstruction from the same-day behavior commit and 138 populated
+            chat histories; game 123 preserved only its no-chat-history error. The
+            traces show 3,188 Motor → External Perception transitions and all 12 routed
+            roles. The later summit deck remains displayed below as a separate
+            architectural snapshot; W&B exports remain canonical for the outcome.
           </figcaption>
         </figure>
 
@@ -275,7 +284,10 @@
             evaluated implementation. The editable PPTX is not redistributed; all 17
             rendered slides appear below.
           </p>
-          <a href="evidence/architecture/manifest.json">Architecture provenance manifest</a>
+          <div class="provenance-links">
+            <a href="evidence/architecture/run_architecture.json">Evaluated runtime manifest</a>
+            <a href="evidence/architecture/manifest.json">Summit deck manifest</a>
+          </div>
         </div>
       </section>
 
@@ -401,13 +413,95 @@
       <section id="system" class="section dark-section" aria-labelledby="system-title">
         <div class="section-heading">
           <p class="eyebrow">Current system</p>
-          <h2 id="system-title">The research contribution is the improvement loop.</h2>
+          <h2 id="system-title">CogAgentLab now separates environment, state, control, memory, and evidence.</h2>
           <p>
-            CogAgentLab connects a cognitive multi-agent runtime to environment
-            adapters, persistent experiment records, analyst traces, and a local
-            coding-agent workflow. The human remains responsible for deciding which
-            changes survive.
+            The latest audited runtime retains a global-workspace-style multi-agent
+            core, but it no longer relies on chat roles alone. Typed decision state,
+            task contracts, grounded referents, interruptible action options, and an
+            uncertainty-triggered deliberation policy mediate the loop across four
+            environment adapters.
           </p>
+        </div>
+
+        <figure class="current-architecture">
+          <div class="current-architecture-heading">
+            <div>
+              <p class="eyebrow">Source-audited runtime · July 2026</p>
+              <h3>A guarded fast path, an evidence-triggered thinking path, and persistent memory.</h3>
+            </div>
+            <a href="evidence/current-architecture/manifest.json">Current architecture manifest</a>
+          </div>
+
+          <div class="adapter-rail" aria-label="Supported environment adapters">
+            <span>ALFWorld</span><span>ScienceWorld</span><span>Tales</span><span>NetHack</span>
+          </div>
+
+          <div class="current-control-flow" role="img" aria-label="Four environment adapters feed normalized observations and admissible actions into a typed decision state. The state supplies a belief and meta-control layer. On a stable path, Action Agent executes guarded action sequences through perception and returns new state. On uncertainty, failure, interruption, referent ambiguity, or a forced interval, Thinking Agent deliberates before action. Focus, retrieval, and learning branches support the workspace.">
+            <div class="stack-node state-node">
+              <span class="node-kicker">1 · Normalize and ground</span>
+              <h4>Typed DecisionState</h4>
+              <div class="state-chip-grid">
+                <span>Action surface</span><span>Goal</span><span>Grounding</span>
+                <span>Option</span><span>Progress</span><span>Uncertainty</span>
+              </div>
+              <p>Task contracts, referent resolution, candidate and relation frontiers, measurement and comparison state.</p>
+            </div>
+
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+
+            <div class="stack-node control-node">
+              <span class="node-kicker">2 · Allocate cognition</span>
+              <h4>Belief state + meta-control</h4>
+              <div class="control-paths">
+                <article>
+                  <strong>Stable progress</strong>
+                  <span>Action → guarded low-risk burst → External Perception → Echo</span>
+                </article>
+                <article>
+                  <strong>New evidence or uncertainty</strong>
+                  <span>Belief revision → Thinking → Action</span>
+                </article>
+              </div>
+              <p class="support-paths">Support branches: Focus · Retrieve Memory · Learn and Record Concept</p>
+            </div>
+
+            <div class="stack-arrow" aria-hidden="true">↓</div>
+
+            <div class="stack-node action-node">
+              <span class="node-kicker">3 · Act with interrupts</span>
+              <h4>Option contract and action executor</h4>
+              <p>Shortlisted actions can run as a burst, but goal changes, grounding changes, failed actions, observation changes, or exhausted progress debt interrupt it and return control to state revision.</p>
+            </div>
+          </div>
+
+          <div class="current-support-grid">
+            <article>
+              <span class="node-kicker">Memory plane</span>
+              <h4>Three retrieval scopes</h4>
+              <p>Current-episode summaries, similarity-retrieved prior episodes, and environment-scoped clustered concepts. Writes are disabled on <code>valid_unseen</code>.</p>
+            </article>
+            <article>
+              <span class="node-kicker">Evidence plane</span>
+              <h4>Run state remains inspectable</h4>
+              <p>Experiment rows, episode metrics, transcripts, structured analyst traces, W&B metrics, and object-store artifacts preserve what happened.</p>
+            </article>
+            <article>
+              <span class="node-kicker">Known boundary</span>
+              <h4>Still a research architecture</h4>
+              <p>Typed state and meta-control are implemented, but the source still contains substantial task-specific heuristics. The learned controller in the roadmap is not yet implemented.</p>
+            </article>
+          </div>
+
+          <figcaption>
+            Structural audit of the checked-in runtime at commit
+            <code>dce7574</code>. This diagram reports implemented control paths; it
+            does not imply a new cross-environment performance result.
+          </figcaption>
+        </figure>
+
+        <div class="iteration-heading">
+          <p class="eyebrow">Outer research loop</p>
+          <h3>Failures become bounded coding-agent experiments, not automatic deployments.</h3>
         </div>
 
         <ol class="loop" aria-label="Agent-directed research loop">
@@ -438,6 +532,8 @@
 
         <div class="code-links" aria-label="Current implementation links">
           <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/gwt_agent.py">Cognitive runtime</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/decision_state.py">Typed decision state</a>
+          <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/deliberation_policy.py">Deliberation policy</a>
           <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/src/agent/env_adapter.py">Environment adapters</a>
           <a href="https://github.com/Eduardo1100/CogAgentLab/blob/dce757481805583c91ddb1502a2c6ffc26482d47/scripts/iterate_agent.py">Iteration driver</a>
           <a href="https://github.com/Eduardo1100/CogAgentLab/actions/runs/23368772244">Passing public CI run</a>
@@ -473,7 +569,12 @@
               </tr>
               <tr>
                 <td>Architecture used for the 139-game run</td>
-                <td><a href="evidence/architecture/manifest.json">Slide-level architecture manifest</a> and <a href="evidence/game_results.csv">canonical game table</a></td>
+                <td><a href="evidence/architecture/run_architecture.json">Run-specific architecture manifest</a>, <a href="https://github.com/project194-cognitivellm/cognitivellm/tree/52071d0d537ede5127a0cbc87ca06500f6ef4316/runs-1/20250328_103103">immutable traces</a>, and <a href="evidence/architecture/manifest.json">separate deck manifest</a></td>
+                <td><span class="status verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td>Current CogAgentLab control architecture</td>
+                <td><a href="evidence/current-architecture/manifest.json">Source-audited architecture manifest</a> and immutable runtime links</td>
                 <td><span class="status verified">Verified</span></td>
               </tr>
               <tr>
@@ -501,6 +602,8 @@
             <a href="evidence/summary.json">Summary JSON</a>
             <a href="evidence/manifest.json">Provenance manifest</a>
             <a href="evidence/SHA256SUMS">Source checksums</a>
+            <a href="evidence/architecture/run_architecture.json">Evaluated runtime architecture</a>
+            <a href="evidence/current-architecture/manifest.json">Current architecture</a>
             <a
               href="https://wandb.ai/eduardocortes1100-university-of-california-berkeley/cognitive_agents/runs/vee8kzls"
             >Original W&B run <small>(authentication required)</small></a>

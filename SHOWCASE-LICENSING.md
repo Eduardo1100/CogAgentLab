@@ -18,7 +18,8 @@ The following files are licensed under the MIT License in
 
 Original authored prose, layout, styles, and graphics in `site/`, together with
 the authored documentation and provenance descriptions in
-`evidence/alfworld_20250328/` and `evidence/architecture_2025/`, are licensed
+`evidence/alfworld_20250328/`, `evidence/architecture_2025/`, and
+`evidence/current_architecture_2026/`, are licensed
 under the [Creative Commons Attribution 4.0 International
 license](https://creativecommons.org/licenses/by/4.0/)
 (CC BY 4.0), where copyright or similar rights apply. Attribute the work to
