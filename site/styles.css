@@ -790,7 +790,7 @@ h1 {
 }
 
 .current-architecture {
-  margin: 3rem 0 0;
+  margin: 3rem auto 0;
   padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid #466657;
   border-radius: 1rem;
